@@ -1,0 +1,8 @@
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.header {
+    border: 1.5px solid #F2F2F2;
+}

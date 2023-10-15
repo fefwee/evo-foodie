@@ -1,0 +1,54 @@
+.box_recipe {
+    position: relative;
+    max-width: 400px;
+    height: 434px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%);
+    padding: 16px;
+}
+
+.logo img {
+    border-radius: 45px;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    margin-right: 34px;
+}
+
+.tags span {
+    margin-right: 10px;
+}
+
+.favorite {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+}
+
+.icons {
+    display: flex;
+}
+
+.description {
+    padding: 24px 0 27px 0;
+}
+
+.box {
+    margin-top: 24px;
+}
+
+.header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header h2 {
+    margin-bottom: 24px;
+}
+
+.header h6 {
+    max-width: 706px;
+    margin: 0 auto;
+}

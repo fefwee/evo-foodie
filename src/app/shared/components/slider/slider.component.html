@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="card">
+    <p-galleria
+      [value]="products"
+      [showItemNavigators]="true"
+      [showThumbnails]="false"
+      [responsiveOptions]="responsiveOptions"
+      [transitionInterval]="5000"
+      [autoPlay]="true"
+      [containerStyle]="{'max-width':'1280px'}"
+      [showIndicatorsOnItem]="false"
+    >
+      <ng-template pTemplate="item" let-item>
+        <div class="desc"> 
+          <div>
+            <h1>{{ item.title }}</h1>
+            <h6>{{ item.body }}</h6>
+          </div>
+          <div>
+            <div>
+              <img src="#" alt="" />
+              <span>30 минут</span>
+            </div>
+            <div>
+              <img src="#" alt="" />
+              <span>курица</span>
+            </div>
+          </div>
+          <div>
+            <div class="logo">
+              <img src="#" alt="" />
+            </div>
+            <div class="name">
+              <h4>john</h4>
+              <p>date</p>
+            </div>
+            <div class="btn"></div>
+            <p-button label="Посмотреть"></p-button>
+          </div>
+          <div>logo 2</div>
+        </div>
+        <div class="logos"  style="background-image: url({{item.image}});border-radius: 10px;">
+          123
+        </div>
+      </ng-template>
+    </p-galleria>
+  </div>
+</div>
