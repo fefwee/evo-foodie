@@ -1,1 +1,74 @@
-<p>form works!</p>
+<form [formGroup]="loginForm" class="position" (ngSubmit)="submitUser()">
+  <div class="form">
+    <h4>{{ title }}</h4>
+    <div class="container">
+      <div class="form_container">
+        <div>
+          <div class="flex flex-column gap-2 box_input">
+            <label htmlFor="username">Логин</label>
+            <input
+              pInputText
+              placeholder="write login"
+              formControlName="username"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited && loginForm.controls['username'].errors) ||
+                  (!loginForm.controls['username'].pristine &&
+                    loginForm.controls['username'].invalid)
+              }"
+            />
+          </div>
+          <div class="flex flex-column gap-2 box_input">
+            <label htmlFor="username">Пароль</label>
+            <input
+              pInputText
+              placeholder="write login"
+              formControlName="password"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited && loginForm.controls['password'].errors) ||
+                  (!loginForm.controls['password'].pristine &&
+                    loginForm.controls['password'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div *ngIf="isLogin">
+          <div class="remember">
+            <div class="checkbox">
+              <input type="checkbox" />
+              <label for="">Запомнить меня</label>
+            </div>
+            <a routerLink="/register">Зарегистрироваться </a>
+          </div>
+          <p-button
+            label="Вход"
+            (onClick)="onSave()"
+            [disabled]="!loginForm.valid"
+          ></p-button>
+          <div class="sign">
+            <div class="arrow"></div>
+            <a>Войти через</a>
+            <div class="arrow"></div>
+          </div>
+        </div>
+        <div *ngIf="isLogin">
+          <p-button styleClass="p-button-outlined p-button-secondary">
+            <img
+              alt="logo"
+              src="../../../assets/github-mark.svg"
+              style="width: 1.5rem; margin: 0 auto"
+            />
+          </p-button>
+        </div>
+        <div *ngIf="!isLogin">
+          <p-button
+            label="Зарегистрироваться"
+            (onClick)="onSave()"
+            [disabled]="!loginForm.valid"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

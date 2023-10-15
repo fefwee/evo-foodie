@@ -8,16 +8,23 @@ import { SliderComponent } from './components/slider/slider.component';
 import { BestRecipeComponent } from './components/best-recipe/best-recipe.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FormComponent } from './components/form/form.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './components/form/form.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
+    InputTextModule,
     CommonModule,
+    FormsModule,
     ButtonModule,
     MatMenuModule,
     GalleriaModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     NavBarComponent,
@@ -29,7 +36,8 @@ import { FormComponent } from './components/form/form.component'
   exports: [
     NavBarComponent,
     SliderComponent,
-    BestRecipeComponent
+    BestRecipeComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }

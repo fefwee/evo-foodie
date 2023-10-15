@@ -15,7 +15,8 @@ export class AuthPageComponent {
  
 
 
-  public addBook() {
-
+  public addBook(event:any) {
+    console.log(event);
+    
   };
 }

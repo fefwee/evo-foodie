@@ -1,0 +1,88 @@
+ .position {
+     width: 100%;
+     height: 100%;
+
+ }
+
+ .container {
+     border-radius: 8px;
+     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+ }
+
+ .form h4 {
+     text-align: center;
+     margin-bottom: 32px;
+ }
+
+ form {
+     position: relative;
+     max-width: 450px;
+     margin: 0 auto;
+ }
+
+ .box_input {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .form_container {
+     padding: 32px 40px;
+ }
+
+ .box_input input {
+     padding: 9px 13px;
+     margin-bottom: 24px;
+     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+ }
+
+ .validation{
+    background: url('../../../../assets/Exclamationcircle.svg');
+    background-repeat: no-repeat;
+    background-position:right;
+    background-position-x:95%;
+} 
+
+ .box_input label {
+     margin-bottom: 4px;
+ }
+
+ .remember {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .remember a {
+     color: #3A3395;
+ }
+
+ .checkbox label {
+     margin-left: 8px;
+     font-size: 14px;
+ }
+
+ ::ng-deep .p-button {
+     width: 100%;
+     background: var(--link-color, #3A3395);
+     margin: 24px 0;
+     border: none;
+ }
+
+
+ .sign {
+     width: 100%;
+     display: flex;
+     align-items: center;
+ }
+
+ .sign a {
+     color: var(--gray-500, #6B7280);
+     margin: 0 8px;
+
+ }
+
+ .arrow {
+     flex-grow: 1;
+     height: 1px;
+     background: var(--gray-300, #D1D5DB);
+
+ }
