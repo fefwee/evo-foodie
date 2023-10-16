@@ -1,36 +1,102 @@
-<div class="container" *ngIf="recipeObj">
-  <h1>{{ recipeObj.title }}</h1>
+<section class="container" *ngIf="recipeObj">
   <div class="sub_container">
-    <div class="user_block">
-      <div class="logo flex">
-        <img src="{{ recipeObj.user.image }}" alt="" class="box" />
-        <div>
-          <h6>{{ recipeObj.user.name }}</h6>
-          <p>{{ recipeObj.user.date | date : "longDate" }}</p>
+    <div>
+      <h1>{{ recipeObj.title }}</h1>
+      <div class="user_block">
+        <div class="logo flex">
+          <img src="{{ recipeObj.user.image }}" alt="" class="box" />
+          <div>
+            <h6>{{ recipeObj.user.name }}</h6>
+            <p>{{ recipeObj.user.date | date : "longDate" }}</p>
+          </div>
         </div>
-      </div>
-      <div class="time flex">
-        <img src="../../../../assets/Timer.svg" alt="" class="box" />
-        <div>
-          <p>Время приготовления</p>
-          <p>{{ recipeObj.timeCooking }}</p>
+        <div class="time flex">
+          <img src="../../../../assets/Timer.svg" alt="" class="box" />
+          <div>
+            <p>Время приготовления</p>
+            <p>{{ recipeObj.timeCooking }} минут</p>
+          </div>
         </div>
-      </div>
-      <div class="icon flex">
-        <img src="../../../../assets/ForkKnife.svg" alt="" class="box" />
-        <p>{{ recipeObj.tags }}</p>
+        <div class="icon flex">
+          <img src="../../../../assets/ForkKnife.svg" alt="" class="box" />
+          <p>{{ recipeObj.tags }}</p>
+        </div>
       </div>
     </div>
     <div class="print_box">
-        <div class="print print">
-          <img src="../../../../assets/printer.svg" alt="" />
-          <p>РАСПЕЧАТАТЬ</p>
+      <div class="print print">
+        <img src="../../../../assets/printer.svg" alt="" />
+        <p>РАСПЕЧАТАТЬ</p>
+      </div>
+      <div class="share print">
+        <img src="../../../../assets/share.svg" alt="" />
+        <p>ПОДЕЛИТЬСЯ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="image_block">
+    <div class="image_recipe">
+      <img src="{{ recipeObj.image }}" alt="" />
+    </div>
+    <div class="description">
+      <div class="description_box">
+        <h5>Пищевая ценность</h5>
+        <div class="nutritional">
+          <div class="nutritional_flex">
+            <span>Калории</span>
+            <p>{{ recipeObj.foodValue.calories }}</p>
+          </div>
+          <div class="nutritional_flex">
+            <span>Жиры</span>
+            <p>{{ recipeObj.foodValue.fats }}</p>
+          </div>
+          <div class="nutritional_flex">
+            <span>Углеводы</span>
+            <p>{{ recipeObj.foodValue.carbohydrates }}</p>
+          </div>
+          <div class="nutritional_flex">
+            <span>Белки</span>
+            <p>{{ recipeObj.foodValue.belki }}</p>
+          </div>
         </div>
-        <div class="share print">
-          <img src="../../../../assets/share.svg" alt="" />
-          <p>ПОДЕЛИТЬСЯ</p>
+        <p class="values">Значения приблизительные</p>
+      </div>
+    </div>
+  </div>
+  <h6 class="food">
+    What does the word “food” mean to you? Is it a pleasure or just a fuel? This
+    question has been disputable for a long time and everybody has his personal
+    opinion about it. The majority of people would agree that we eat in order to
+    have enough energy to complete our routine tasks.
+  </h6>
+</section>
+
+<section>
+  <div class="ingridient_box">
+    <h3>Ингредиенты</h3>
+    <div class="ingridient_list">
+      <h5>Что вам пригодиться</h5>
+      <div>
+        <div class="round">
+          <input type="checkbox" id="checkbox" class="checlStr" />
+          <label for="checkbox" class="labelCheck">Check me!</label>
+        </div>
+        <div>
+          <input type="checkbox" id="opt-in" class="checlStr" />
+          <label for="opt-in" class="labelCheck">Check me!</label>
+        </div>
+        <div>
+          <input type="checkbox" id="opt-in" class="checlStr" />
+          <label for="opt-in" class="labelCheck">Check me!</label>
+        </div>
+        <div>
+          <input type="checkbox" id="opt-in" class="checlStr" />
+          <label for="opt-in" class="labelCheck">Check me!</label>
         </div>
       </div>
+    </div>
   </div>
-
-</div>
+</section>
