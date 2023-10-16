@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
 
   ],
   providers: [],

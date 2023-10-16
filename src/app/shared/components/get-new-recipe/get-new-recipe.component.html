@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <div class="description">
+      <h4>Хотите получать новые рецепты?</h4>
+      <h6>
+        Не пропустите ни одного вкусного рецепта! Подпишитесь на нашу рассылку,
+        чтобы получать новые кулинарные идеи и рецепты прямо в свою почту.
+      </h6>
+    </div>
+    <div class="mailing">
+      <input
+        type="email"
+        pInputText
+        placeholder="Введите ваш email..."
+        formControlName="email"
+      />
+      <p-button
+        type="submit"
+        label="Подписаться"
+        [disabled]="registerForm.invalid"
+      ></p-button>
+    </div>
+    <div *ngIf="subscribe" class="message">
+        <p-messages
+          [(value)]="messages"
+          [enableService]="false"
+          [closable]="true"
+        ></p-messages>
+  </div>
+
+  </div>
+</form>

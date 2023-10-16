@@ -1,8 +1,19 @@
-.container {
+.header {
+    border-bottom:1.5px solid #F2F2F2;
+}
+.footer {
+    border-top:1.5px solid #F2F2F2;
+}
+section{
     max-width: 1320px;
     margin: 0 auto;
 }
 
-.header {
-    border: 1.5px solid #F2F2F2;
+
+.middle section {
+    min-height: 800px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+
 }

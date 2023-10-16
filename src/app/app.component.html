@@ -1,12 +1,15 @@
 <div class="header">
-  <button routerLink="/auth">auth</button>
-  <button routerLink="/register">regist</button>
-  <div class="container">
+  <section>
     <app-nav-bar></app-nav-bar>
+  </section>
   </div>
-</div>
-
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+  <div class="middle">
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+  <div class="footer">
+    <section>
+      <app-footer></app-footer>
+    </section>
+  </div>

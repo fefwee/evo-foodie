@@ -1,0 +1,36 @@
+<div class="container" *ngIf="recipeObj">
+  <h1>{{ recipeObj.title }}</h1>
+  <div class="sub_container">
+    <div class="user_block">
+      <div class="logo flex">
+        <img src="{{ recipeObj.user.image }}" alt="" class="box" />
+        <div>
+          <h6>{{ recipeObj.user.name }}</h6>
+          <p>{{ recipeObj.user.date | date : "longDate" }}</p>
+        </div>
+      </div>
+      <div class="time flex">
+        <img src="../../../../assets/Timer.svg" alt="" class="box" />
+        <div>
+          <p>Время приготовления</p>
+          <p>{{ recipeObj.timeCooking }}</p>
+        </div>
+      </div>
+      <div class="icon flex">
+        <img src="../../../../assets/ForkKnife.svg" alt="" class="box" />
+        <p>{{ recipeObj.tags }}</p>
+      </div>
+    </div>
+    <div class="print_box">
+        <div class="print print">
+          <img src="../../../../assets/printer.svg" alt="" />
+          <p>РАСПЕЧАТАТЬ</p>
+        </div>
+        <div class="share print">
+          <img src="../../../../assets/share.svg" alt="" />
+          <p>ПОДЕЛИТЬСЯ</p>
+        </div>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 48px 32px;
+
+}
+
+.logo_box {
+    display: flex;
+}
+
+.logo_box img {
+    margin-right: 24px;
+}

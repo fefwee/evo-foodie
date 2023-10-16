@@ -1,0 +1,62 @@
+.container {
+    position: relative;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.logo img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+}
+
+.logo h6 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.user_block {
+    display: flex;
+    align-items: center;
+
+}
+
+.time {
+    border-right: 1px solid rgba(0, 0, 0, 0.10);
+    border-left: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.box {
+    margin-right: 16px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    padding: 0 29px;
+}
+
+.print img {
+    padding: 28px;
+    background-color: #E7FAFE;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+}
+.print_box{
+    display: flex;
+    border:1px solid red;
+}
+.print_box img {
+    margin-right: 30px;
+}
+.sub_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid red;
+}

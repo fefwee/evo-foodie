@@ -1,0 +1,42 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+    background: #E7F9FD;
+    padding: 80px;
+    margin-top: 150px;
+}
+
+
+
+.description {
+    max-width: 680px;
+}
+
+::ng-deep .p-button {
+    background: var(--link-color, #3A3395);
+    border: none;
+    margin-left: 12px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+ 
+}
+
+.mailing {
+    display: flex;
+    align-items: center;
+}
+.validation{
+    border:1px solid green;
+}
+.message{
+    position: absolute;
+    top:-35%;
+    right:0;
+    
+}
+::ng-feep .p-messages{
+    width: 300px;
+}

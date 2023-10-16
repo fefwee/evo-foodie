@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
 
   submitUser() {
     this.isFormSubmited = true
-    if (this.loginForm.invalid) {
+    if (this.loginForm.value === 0 ) {
       return
     }
   }
