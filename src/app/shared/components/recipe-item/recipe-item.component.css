@@ -1,58 +1,82 @@
-.container .box{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.box_recipe {
-    position: relative;
-    max-width: 400px;
-    height: 434px;
-    border-radius: 30px;
-    background: linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%);
-    padding: 16px;
-}
+ .box {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+ }
 
-.logo img {
-    border-radius: 45px;
-}
+ .box2 {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+ }
 
-.tags {
-    display: flex;
-    align-items: center;
-    margin-right: 34px;
-}
+ .box_recipe {
+     position: relative;
+     max-width: 400px;
+     height: 434px;
+     border-radius: 30px;
+     background: linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%);
+     padding: 16px;
+ }
 
-.tags span {
-    margin-right: 10px;
-}
+ .box_recipe2 {
+     position: relative;
+     max-width: 290px;
+     max-height: 330px;
+     border-radius: 30px;
+     padding: 16px;
+     background: #ffff;
+ }
 
-.favorite {
-    position: absolute;
-    top: 36px;
-    right: 36px;
-}
+ .logo img {
+     border-radius: 45px;
+ }
 
-.icons {
-    display: flex;
-}
+ .tags {
+     display: flex;
+     align-items: center;
+     margin-right: 34px;
+ }
 
-.description {
-    padding: 24px 0 27px 0;
-}
+ .tags span {
+     margin-right: 10px;
+ }
 
-.box {
-    margin-top: 24px;
-}
+ .favorite {
+     position: absolute;
+     top: 36px;
+     right: 36px;
+ }
 
-.header {
-    margin: 0 auto;
-    text-align: center;
-}
+ .icons {
+     display: flex;
+ }
 
-.header h2 {
-    margin-bottom: 24px;
-}
+ .description {
+     padding: 24px 0 27px 0;
+ }
 
-.header h6 {
-    max-width: 706px;
-    margin: 0 auto;
-}
+ .title_small {
+     color: #000;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 600;
+     line-height: 26px;
+     letter-spacing: -0.72px;
+ }
+
+ .box {
+     margin-top: 24px;
+ }
+
+ .header {
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .header h2 {
+     margin-bottom: 24px;
+ }
+
+ .header h6 {
+     max-width: 706px;
+     margin: 0 auto;
+ }

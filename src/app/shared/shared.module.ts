@@ -19,9 +19,13 @@ import { WhyWeComponent } from './components/why-we/why-we.component';
 import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recipe.component';
 import { MessagesModule } from 'primeng/messages';
 import { RecipeItemDetailComponent } from './components/recipe-item-detail/recipe-item-detail.component';
+import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   imports: [
+    ConfirmDialogModule,
     MessagesModule,
     InputTextModule,
     CommonModule,
@@ -32,7 +36,7 @@ import { RecipeItemDetailComponent } from './components/recipe-item-detail/recip
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [
     NavBarComponent,
@@ -45,7 +49,10 @@ import { RecipeItemDetailComponent } from './components/recipe-item-detail/recip
     RecipeItemComponent,
     WhyWeComponent,
     GetNewRecipeComponent,
-    RecipeItemDetailComponent
+    RecipeItemDetailComponent,
+    OtherRecipeComponent,
+    CommentsComponent
+
   ],
   exports: [
     NavBarComponent,
@@ -56,7 +63,8 @@ import { RecipeItemDetailComponent } from './components/recipe-item-detail/recip
     WhyWeComponent,
     GetNewRecipeComponent,
     RecipeItemComponent,
-    RecipeItemDetailComponent
-  ]
+    RecipeItemDetailComponent,
+    OtherRecipeComponent
+  ],
 })
 export class SharedModule { }

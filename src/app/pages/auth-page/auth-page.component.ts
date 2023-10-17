@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthUserService } from 'src/app/services/auth-user.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -12,11 +13,32 @@ export class AuthPageComponent {
     auctor: ''
   };
 
- 
+  private userData: any = {
+    email: '',
+    password: ''
+  }
+
+  constructor(private service: AuthUserService) { }
+
+  ngOnInit(): void {
+  }
+
+  public onSubmit(event: any) {
 
 
-  public addBook(event:any) {
-    console.log(event);
-    
+  }
+
+  public login(event: any) {
+
+    this.userData = {
+      username: event.username,
+      password: event.password
+    }
+    this.service.loginUser(this.userData).subscribe({
+      next: () => {
+
+      }
+    })
+
   };
 }

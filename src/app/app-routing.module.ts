@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'recipe',
     loadChildren: () => import('./pages/catalog-recipe/catalog-recipe.module').then(m => m.CatalogRecipeModule)
-  }
+  },
 ];
 
 @NgModule({

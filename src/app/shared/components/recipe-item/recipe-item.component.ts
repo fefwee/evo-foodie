@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -8,16 +8,21 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeItemComponent {
 
+  @Input() elemnt!:number;
+  @Input() stylesClass!:boolean;
+
   constructor(private service: RecipeService,
   ) { }
 
   public recipe: any = [];
 
   ngOnInit(): void {
-    this.service.getRecipe().subscribe({
-      next: (val) => {
+    this.service.getRandomRecipe(this.elemnt).subscribe({
+      next: (val: any) => {
         this.recipe = val;
       }
     })
   }
 }
+
+

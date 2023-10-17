@@ -14,7 +14,7 @@
           <img src="../../../../assets/Timer.svg" alt="" class="box" />
           <div>
             <p>Время приготовления</p>
-            <p>{{ recipeObj.timeCooking }} минут</p>
+            <p>{{ recipeObj.timeCooking }} минуты</p>
           </div>
         </div>
         <div class="icon flex">
@@ -28,9 +28,13 @@
         <img src="../../../../assets/printer.svg" alt="" />
         <p>РАСПЕЧАТАТЬ</p>
       </div>
-      <div class="share print">
+      <div class="share print" (click)="confirm1()">
         <img src="../../../../assets/share.svg" alt="" />
         <p>ПОДЕЛИТЬСЯ</p>
+        <div class="card flex justify-content-center gap-2">
+          <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
+        </div>
+        <p></p>
       </div>
     </div>
   </div>
@@ -74,28 +78,62 @@
   </h6>
 </section>
 
-<section>
+<section class="select_section">
   <div class="ingridient_box">
     <h3>Ингредиенты</h3>
     <div class="ingridient_list">
       <h5>Что вам пригодиться</h5>
-      <div>
+      <div *ngFor="let item of selectRecipe">
         <div class="round">
           <input type="checkbox" id="checkbox" class="checlStr" />
-          <label for="checkbox" class="labelCheck">Check me!</label>
+          <label for="checkbox" class="labelCheck">{{ item.title }}</label>
         </div>
-        <div>
-          <input type="checkbox" id="opt-in" class="checlStr" />
-          <label for="opt-in" class="labelCheck">Check me!</label>
+      </div>
+    </div>
+  </div>
+  <div class="other_recipe">
+    <div>
+      <app-other-recipe></app-other-recipe>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="steps">
+    <h3>Шаги приготовления</h3>
+    <div class="ingridient_list">
+      <h5>Что вам пригодиться</h5>
+      <div *ngFor="let item of selectRecipe; let index = index">
+        <div class="round">
+          <input type="checkbox" id="checkbox" class="checlStr" />
+          <label for="checkbox" class="labelCheck"
+            ><div>
+              <p class="header_title">{{ item.header }}</p>
+              <p>{{ item.title }}</p>
+            </div></label
+          >
         </div>
-        <div>
-          <input type="checkbox" id="opt-in" class="checlStr" />
-          <label for="opt-in" class="labelCheck">Check me!</label>
-        </div>
-        <div>
-          <input type="checkbox" id="opt-in" class="checlStr" />
-          <label for="opt-in" class="labelCheck">Check me!</label>
-        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-recipe-item [elemnt]="5" [stylesClass]="true"></app-recipe-item>
+
+<section>
+  <h3>Комментарии</h3>
+  <!--   <div *ngFor="let item of recipeObj">
+    <img src={{item.user.image}} alt="">
+
+  </div> -->
+  <div *ngFor="let item of recipeObj.comments">
+    <div>
+      <div class="logo_comments">
+        <img src="" alt="" />
+      </div>
+      <div class="name_comments">
+        <p>{{ item.user.username }}</p>
+        <p>{{ item.dateCreated | date : "longDate" }}</p>
+        <p>{{ item.body }}</p>
       </div>
     </div>
   </div>
