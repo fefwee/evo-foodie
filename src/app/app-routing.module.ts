@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
+import { NoAccessPageComponent } from './shared/components/no-access-page/no-access-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule),
   },
   {
     path: 'auth',
@@ -17,6 +19,18 @@ const routes: Routes = [
   {
     path: 'recipe',
     loadChildren: () => import('./pages/catalog-recipe/catalog-recipe.module').then(m => m.CatalogRecipeModule)
+  },
+  {
+    path: 'create-recipe',
+    loadChildren: () => import('./pages/create-recipe-page/create-recipe-page.module').then(m => m.CreateRecipePageModule)
+  },
+  {
+    path: 'access',
+    component: NoAccessPageComponent
+  },
+  {
+    path: '**',
+    component: ErrorPageComponent
   },
 ];
 

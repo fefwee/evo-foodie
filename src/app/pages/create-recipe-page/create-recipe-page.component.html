@@ -1,0 +1,252 @@
+<div class="container">
+  <div class="create_recipe">
+    <h3>Создание рецепта</h3>
+    <form [formGroup]="createRecipeForm" class="basic_information">
+      <div>
+        <div class="input_field">
+          <h5>Основная информация</h5>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Название рецепта</p>
+          </label>
+          <div class="max_field input">
+            <input
+              pInputText
+              formControlName="nameRecipe"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['nameRecipe'].errors) ||
+                  (!createRecipeForm.controls['nameRecipe'].pristine &&
+                    createRecipeForm.controls['nameRecipe'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Краткое описание</p>
+          </label>
+          <div class="max_field input">
+            <textarea
+              rows="2"
+              cols="30"
+              pInputTextarea
+              formControlName="descRecipe"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['descRecipe'].errors) ||
+                  (!createRecipeForm.controls['descRecipe'].pristine &&
+                    createRecipeForm.controls['descRecipe'].invalid)
+              }"
+            ></textarea>
+            <p>Опишите о чем ваш рецепт</p>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Фотография</p>
+          </label>
+          <div class="max_field input">
+            <textarea
+              rows="2"
+              cols="30"
+              pInputTextarea
+              formControlName="image"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['image'].errors) ||
+                  (!createRecipeForm.controls['image'].pristine &&
+                    createRecipeForm.controls['image'].invalid)
+              }"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="input_field">
+          <h5>Дополнительная информация</h5>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Категория</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="categories"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['categories'].errors) ||
+                  (!createRecipeForm.controls['categories'].pristine &&
+                    createRecipeForm.controls['categories'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Время приготовления</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="timeCooking"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['timeCooking'].errors) ||
+                  (!createRecipeForm.controls['timeCooking'].pristine &&
+                    createRecipeForm.controls['timeCooking'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Первый ингридиент</p>
+          </label>
+          <div class="max_field input">
+            <input
+              pInputText
+              formControlName="firsIngridient"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['firsIngridient'].errors) ||
+                  (!createRecipeForm.controls['firsIngridient'].pristine &&
+                    createRecipeForm.controls['firsIngridient'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Белки</p>
+          </label>
+          <div class="max_field input">
+            <input
+              pInputText
+              formControlName="belki"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['belki'].errors) ||
+                  (!createRecipeForm.controls['belki'].pristine &&
+                    createRecipeForm.controls['belki'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Жиры</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="fats"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['fats'].errors) ||
+                  (!createRecipeForm.controls['fats'].pristine &&
+                    createRecipeForm.controls['fats'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Углеводы</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="carbohydrates"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['carbohydrates'].errors) ||
+                  (!createRecipeForm.controls['carbohydrates'].pristine &&
+                    createRecipeForm.controls['carbohydrates'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Калории</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="calories"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['calories'].errors) ||
+                  (!createRecipeForm.controls['calories'].pristine &&
+                    createRecipeForm.controls['calories'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="column">
+          <h5>Детальная информация</h5>
+          <p>Детально опишите первый шаг вашего рецепта</p>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Краткое действие первого шага</p>
+          </label>
+          <div class="min_field">
+            <input
+              pInputText
+              formControlName="firstStep"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['firstStep'].errors) ||
+                  (!createRecipeForm.controls['firstStep'].pristine &&
+                    createRecipeForm.controls['firstStep'].invalid)
+              }"
+            />
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Описание первого шага</p>
+          </label>
+          <div class="max_field">
+            <textarea
+              rows="1"
+              cols="20"
+              pInputTextarea
+              formControlName="descFirstStep"
+              [ngClass]="{
+                validation:
+                  (isFormSubmited &&
+                    createRecipeForm.controls['descFirstStep'].errors) ||
+                  (!createRecipeForm.controls['descFirstStep'].pristine &&
+                    createRecipeForm.controls['descFirstStep'].invalid)
+              }"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="btn">
+    <p-button
+      [disabled]="!createRecipeForm.valid"
+      label="Отправить рецепт"
+      icon="pi pi-check"
+      (onClick)="submit()"
+    ></p-button>
+  </div>
+</div>  

@@ -6,12 +6,13 @@ import { RecipeItemDetailComponent } from 'src/app/shared/components/recipe-item
 const routes: Routes = [
   {
     path: '',
-    component: CatalogRecipeComponent
+    component: CatalogRecipeComponent,
   },
   {
     path: ':id',
     component: RecipeItemDetailComponent
-  }
+  },
+
 ];
 
 @NgModule({

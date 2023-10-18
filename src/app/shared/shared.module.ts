@@ -22,6 +22,8 @@ import { RecipeItemDetailComponent } from './components/recipe-item-detail/recip
 import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { NoAccessPageComponent } from './components/no-access-page/no-access-page.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     GetNewRecipeComponent,
     RecipeItemDetailComponent,
     OtherRecipeComponent,
-    CommentsComponent
+    CommentsComponent,
+    NoAccessPageComponent,
+    ErrorPageComponent
 
   ],
   exports: [
