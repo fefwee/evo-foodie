@@ -8,16 +8,28 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class BestRecipeComponent implements OnInit {
 
-  constructor(private service:RecipeService){}
+  public recipe: any = new Set([]);
+  public visibleButton = true;
+  constructor(private service: RecipeService) { }
 
-  public recipe:any = [];
 
   ngOnInit(): void {
-    this.service.getRecipe().subscribe({
-      next:(val)=>{
+    this.service.getRandomRecipe(4).subscribe({
+      next: (val) => {
         this.recipe = val;
       }
     })
   }
+
+
+
+  moreRecipe() {
+    this.service.getRandomRecipe(4).subscribe({
+      next: (val) => {
+        this.recipe.push(...val);
+        this.visibleButton = false;
+      }
+    })
+  };
 
 }

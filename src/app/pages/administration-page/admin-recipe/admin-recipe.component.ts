@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-recipe',
@@ -11,18 +12,16 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 })
 export class AdminRecipeComponent implements OnInit {
 
-  constructor(private service: RecipeService,
-    public dialog: MatDialog) { }
-
   public recipes: Recipe[] = [];
+  public isDelete!:boolean
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ModalComponent);
+  constructor(private service: RecipeService,
+    public dialog: MatDialog,
+    private router:Router) { }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+ 
+
+ 
 
   ngOnInit(): void {
     this.service.getRecipe().subscribe({
@@ -32,6 +31,21 @@ export class AdminRecipeComponent implements OnInit {
     })
   }
 
+  openDialog(recipe:boolean):void {
+    const dialogRef = this.dialog.open(ModalComponent,{
+     data:{
+      isRecipe:recipe
+     }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  navigateToRecipe(id:number){
+     this.router.navigate([`admin/recipes/${id}`])
+  }
 }
 
 

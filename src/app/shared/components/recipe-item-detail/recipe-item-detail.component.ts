@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RecipeItem } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -41,6 +43,7 @@ export class RecipeItemDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: RecipeService,
+    public dialog: MatDialog,
     private confirmationService: ConfirmationService, private messageService: MessageService
   ) { }
 
@@ -54,15 +57,15 @@ export class RecipeItemDetailComponent implements OnInit {
   }
 
 
-  confirm1() {
-    this.confirmationService.confirm({
-      message: 'Are you sure that you want to proceed?',
-      header: 'Confirmation',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
-      },
+  openDialog(recipe:boolean):void {
+    const dialogRef = this.dialog.open(ModalComponent,{
+     data:{
+      isRecipe:recipe
+     }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

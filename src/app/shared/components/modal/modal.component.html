@@ -1,15 +1,25 @@
 <div class="flex">
-    <div class="logo">
-      <img
-        src="../../../../assets/Exclamation.svg"
-        alt=""
-        style="width: 40px; height: 40px"
-      />
-    </div>
+  <div class="logo">
+    <img
+      src="../../../../assets/Exclamation.svg"
+      alt=""
+      style="width: 40px; height: 40px"
+    />
+  </div>
   <mat-dialog-content class="mat-typography" style="min-width: 500px">
     <div class="text">
-      <h3>Удалить этот рецепт?</h3>
-      <p>Вы хотите удалить этот рецепт</p>
+      <h3>
+        {{
+          modalVariable ? "Удалить этот рецепт?" : "Поделиться этим рецептом?"
+        }}
+      </h3>
+      <p>
+        {{
+          modalVariable
+            ? "Вы хотите удалить этот рецепт"
+            : "Вы хотите поделиться этим рецептом со всеми?"
+        }}
+      </p>
     </div>
   </mat-dialog-content>
 </div>
@@ -19,7 +29,7 @@
     mat-dialog-close
     style="border: 1px solid grey; padding: 9px 17px"
   >
-    Удалить
+    Закрыть
   </button>
   <button
     mat-button
@@ -27,6 +37,7 @@
     cdkFocusInitial
     style="background-color: red; color: white; padding: 9px 17px"
   >
-    Закрыть
+    {{ modalVariable ? "Удалить" : "Поделиться" }}
   </button>
 </mat-dialog-actions>
+

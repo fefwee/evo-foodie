@@ -11,12 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: 'users',
-        component: AdminUsersComponent
+        component: AdminUsersComponent,
       },
       {
         path: 'recipes',
-        component: AdminRecipeComponent
-      }
+        component: AdminRecipeComponent,
+      },
     ]
   },
 ];

@@ -17,14 +17,10 @@
         <td>{{ recipe.id }}</td>
         <td>{{ recipe.tags }}</td>
         <td>
-          <div class="edit">
-            <button mat-button (click)="openDialog()">Open dialog</button>
-
-          </div>
+          <div class="edit" routerLink="{{recipe.id}}"></div>
         </td>
         <td>
-          <div class="delete"></div>
-
+          <div class="delete" (click)="openDialog(true)"></div>
         </td>
       </tr>
     </ng-template>

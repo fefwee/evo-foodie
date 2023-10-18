@@ -9,6 +9,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class RecipeItemComponent {
 
   @Input() elemnt!:number;
+  @Input() btnVisible:boolean = true;
   @Input() stylesClass!:boolean;
 
   constructor(private service: RecipeService,

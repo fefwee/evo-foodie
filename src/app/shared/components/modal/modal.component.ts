@@ -1,14 +1,32 @@
-import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule]
+  imports: [MatDialogModule, MatButtonModule, CommonModule, ToastModule],
+  providers: [MessageService]
 })
 export class ModalComponent {
+
+  public modalVariable!: string;
+  public access = false;
+
+  constructor(
+    public dialogRef: MatDialogRef<ModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private messageService: MessageService) {
+
+    this.modalVariable = this.data.isRecipe
+  }
+
+
 
 }

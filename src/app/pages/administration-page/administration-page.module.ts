@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
+
 @NgModule({
   declarations: [AdministrationPageComponent, AdminUsersComponent, AdminRecipeComponent],
   imports: [

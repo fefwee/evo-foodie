@@ -1,10 +1,13 @@
 .box_recipe {
-    position: relative;
     max-width: 400px;
     height: 434px;
     border-radius: 30px;
     background: linear-gradient(180deg, rgba(231, 249, 253, 0.00) 0%, #E7F9FD 100%);
     padding: 16px;
+}
+
+.flex {
+    margin: 0px 40px 0 40px;
 }
 
 .logo img {
@@ -36,7 +39,11 @@
 }
 
 .box {
-    margin-top: 24px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 24px 0 100px 0;
+    border-bottom: 1px solid #D1D5DB;
 }
 
 .header {
@@ -51,4 +58,13 @@
 .header h6 {
     max-width: 706px;
     margin: 0 auto;
+}
+
+.more {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.more button {
+    margin: 0px 0 100px 0;
 }
