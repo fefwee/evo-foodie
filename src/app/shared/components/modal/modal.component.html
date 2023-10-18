@@ -1,0 +1,32 @@
+<div class="flex">
+    <div class="logo">
+      <img
+        src="../../../../assets/Exclamation.svg"
+        alt=""
+        style="width: 40px; height: 40px"
+      />
+    </div>
+  <mat-dialog-content class="mat-typography" style="min-width: 500px">
+    <div class="text">
+      <h3>Удалить этот рецепт?</h3>
+      <p>Вы хотите удалить этот рецепт</p>
+    </div>
+  </mat-dialog-content>
+</div>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    style="border: 1px solid grey; padding: 9px 17px"
+  >
+    Удалить
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    style="background-color: red; color: white; padding: 9px 17px"
+  >
+    Закрыть
+  </button>
+</mat-dialog-actions>

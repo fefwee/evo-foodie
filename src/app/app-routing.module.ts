@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/create-recipe-page/create-recipe-page.module').then(m => m.CreateRecipePageModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./pages/administration-page/administration-page.module').then(m => m.AdministrationPageModule)
+  },
+  {
     path: 'access',
     component: NoAccessPageComponent
   },

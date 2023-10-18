@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-create-recipe-page',
@@ -11,7 +12,7 @@ export class CreateRecipePageComponent implements OnInit {
   public createRecipeForm!: FormGroup;
   public isFormSubmited = false;
 
-  constructor() { }
+  constructor(private service: RecipeService) { }
 
   ngOnInit(): void {
     this.createForm()
@@ -34,9 +35,39 @@ export class CreateRecipePageComponent implements OnInit {
     })
   };
 
-  submit(){
-    console.log(this.createRecipeForm.value);
-    
+  submit() {
+    const ing1 = {}
+    const ing2 = {}
+    const value = this.createRecipeForm.value;
+    const bodyRecip = {
+      title: value.nameRecipe,
+      body: value.descRecipe,
+      tags: "string",
+      image: value.image,
+      favorite: true,
+      timeCooking: value.timeCooking,
+      foodValue: {
+        calories: value.calories,
+        fats: value.fats,
+        carbohydrates: value.carbohydrates,
+        belki: value.belki
+      },
+      additionalInformation: {
+        ingredients: [
+          ing1,
+          ing2
+        ],
+        details: [
+          {
+            title: value.firstStep,
+            body: value.descFirstStep
+          }
+        ]
+      }
+    }
+    this.service.createRecipe(bodyRecip).subscribe()
+    console.log(this.createRecipeForm);
+
   }
 
 }

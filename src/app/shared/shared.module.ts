@@ -24,10 +24,12 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NoAccessPageComponent } from './components/no-access-page/no-access-page.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-
+import { ModalComponent } from './components/modal/modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   imports: [
     ConfirmDialogModule,
+    MatDialogModule,
     MessagesModule,
     InputTextModule,
     CommonModule,
@@ -55,7 +57,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     OtherRecipeComponent,
     CommentsComponent,
     NoAccessPageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
 
   ],
   exports: [

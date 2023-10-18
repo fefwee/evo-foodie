@@ -44,6 +44,22 @@ export interface RecipeItem {
     timeCooking: number
     foodValue: FoodValueInterface | undefined
     comments: CommentsInterface[]
-    additionalInformation: AdditionalInformationInteface |undefined
+    additionalInformation: AdditionalInformationInteface | undefined
     favorite: boolean
 }
+export interface Recipe {
+    id: number
+    title: string
+    tags: string
+    user: {
+        id: number,
+        date: string
+        name: string
+        image:string
+    },
+    image:string
+    body:string
+    timeCooking:number
+    favorite: boolean
+}
+
