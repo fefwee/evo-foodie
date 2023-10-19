@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-get-new-recipe',
@@ -9,7 +8,7 @@ import { Message } from 'primeng/api';
 })
 export class GetNewRecipeComponent implements OnInit {
 
-  public messages:any;
+  public messages: any;
   public registerForm!: FormGroup;
   public submitted = false;
   public subscribe = false;
@@ -26,11 +25,12 @@ export class GetNewRecipeComponent implements OnInit {
     this.messages = [{ severity: 'success', summary: 'Success', detail: 'Вы подписались на рассылку' }];
   }
 
-  get f() { return this.registerForm.controls; }
+  get f() {
+    return this.registerForm.controls;
+  }
 
   onSubmit() {
     this.submitted = true;
-
     if (this.registerForm.invalid && this.registerForm.value === 0) {
       return;
     }

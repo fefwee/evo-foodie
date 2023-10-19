@@ -38,7 +38,7 @@ export class RecipeItemDetailComponent implements OnInit {
     }
   ]
 
-  public recipeObj!: any
+  public recipeObj:any
 
   constructor(
     private route: ActivatedRoute,

@@ -16,10 +16,4 @@ export class CatalogRecipeComponent {
     ])
   }
 
-
-  public navigateToDetail(id: number) {
-
-    this.router.navigateByUrl(`recipe/${id}`)
-  }
-
 }

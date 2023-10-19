@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
     styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-    products!: any[];
+    products!: Recipe[];
 
     @ViewChild('container') container!: any
 
@@ -17,7 +18,7 @@ export class SliderComponent implements OnInit {
 
     ngOnInit() {
         this.recipeService.getRecipe().subscribe({
-            next: (rec: any) => {
+            next: (rec: Recipe[]) => {
                 this.products = rec
             }
         })

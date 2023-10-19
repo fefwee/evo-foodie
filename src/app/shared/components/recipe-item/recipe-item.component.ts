@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -17,17 +18,17 @@ export class RecipeItemComponent {
     protected router: Router
   ) { }
 
-  public recipe: any = [];
+  public recipe: Recipe[] = [];
 
   ngOnInit(): void {
     this.service.getRandomRecipe(this.elemnt).subscribe({
-      next: (val: any) => {
+      next: (val: Recipe[]) => {
         this.recipe = val;
       }
     })
   }
 
- 
+
 }
 
 

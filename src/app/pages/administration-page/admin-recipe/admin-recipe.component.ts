@@ -19,10 +19,6 @@ export class AdminRecipeComponent implements OnInit {
     public dialog: MatDialog,
     private router:Router) { }
 
- 
-
- 
-
   ngOnInit(): void {
     this.service.getRecipe().subscribe({
       next: (recipe: Recipe[]) => {
@@ -45,7 +41,7 @@ export class AdminRecipeComponent implements OnInit {
 
   navigateToRecipe(id:number){
      this.router.navigate([`admin/recipes/${id}`])
-  }
+  };
 }
 
 

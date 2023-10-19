@@ -8,10 +8,10 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent,
   },
-/*   {
+  {
     path: ':id',
     component: RecipeItemDetailComponent
-  } */
+  }
 ];
 
 @NgModule({

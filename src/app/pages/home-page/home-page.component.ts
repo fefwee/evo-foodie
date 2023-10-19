@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -10,11 +11,11 @@ export class HomePageComponent implements OnInit {
 
   constructor(private recipeService: RecipeService) { }
 
-  public recipe: any[] = [];
+  public recipe: Recipe[] = [];
 
   ngOnInit(): void {
     this.recipeService.getRecipe().subscribe({
-      next: (rec: any) => {
+      next: (rec: Recipe[]) => {
         this.recipe = rec
       }
     })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -9,19 +10,19 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class OtherRecipeComponent implements OnInit {
 
-  public otherRecipe:any = [];
+  public otherRecipe: Recipe[] = [];
 
-  constructor(private servie:RecipeService,
+  constructor(private servie: RecipeService,
   ) { }
 
   ngOnInit(): void {
-    this.getOtherRecipe( )
+    this.getOtherRecipe()
   }
 
-  public getOtherRecipe(){
-    
+  public getOtherRecipe() {
+
     this.servie.getRandomRecipe(4).subscribe({
-      next:(value)=>{
+      next: (value: Recipe[]) => {
         this.otherRecipe = value;
       }
     })

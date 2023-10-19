@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 
+
+interface userData {
+  username: string
+  password: string
+};
 @Component({
   selector: 'app-auth-page',
   templateUrl: './auth-page.component.html',
@@ -8,24 +13,15 @@ import { AuthUserService } from 'src/app/services/auth-user.service';
 })
 export class AuthPageComponent {
 
-  public addNewBook: any = {
-    nameBook: '',
-    auctor: ''
-  };
 
-  private userData: any = {
-    email: '',
+  private userData: userData = {
+    username: '',
     password: ''
-  }
+  };
 
   constructor(private service: AuthUserService) { }
 
   ngOnInit(): void {
-  }
-
-  public onSubmit(event: any) {
-
-
   }
 
   public login(event: any) {
@@ -36,7 +32,6 @@ export class AuthPageComponent {
     }
     this.service.loginUser(this.userData).subscribe({
       next: () => {
-
       }
     })
 

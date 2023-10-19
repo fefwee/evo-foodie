@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 
+interface userData {
+  email: string
+  password: string
+}
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
@@ -8,14 +12,14 @@ import { AuthUserService } from 'src/app/services/auth-user.service';
 })
 export class RegistrationPageComponent implements OnInit {
 
-  constructor(private service:AuthUserService){}
+  constructor(private service: AuthUserService) { }
 
-  private userData: any = {
+  private userData: userData = {
     email: '',
     password: ''
-  }
-  ngOnInit(): void {
-  }
+  };
+
+  ngOnInit(): void { }
 
   public onSubmit(event: any) {
 
@@ -24,11 +28,9 @@ export class RegistrationPageComponent implements OnInit {
       password: event.password
     }
     this.service.registrationUser(this.userData).subscribe({
-      next:()=>{
-        
+      next: () => {
       }
     })
-
   }
 
   public registration() {

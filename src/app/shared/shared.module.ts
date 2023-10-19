@@ -19,12 +19,12 @@ import { WhyWeComponent } from './components/why-we/why-we.component';
 import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recipe.component';
 import { MessagesModule } from 'primeng/messages';
 import { RecipeItemDetailComponent } from './components/recipe-item-detail/recipe-item-detail.component';
-import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NoAccessPageComponent } from './components/no-access-page/no-access-page.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
 @NgModule({
   imports: [
     ConfirmDialogModule,
@@ -42,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     RouterModule,
   ],
   declarations: [
+    OtherRecipeComponent,
     NavBarComponent,
     SliderComponent,
     BestRecipeComponent,
@@ -53,13 +54,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     WhyWeComponent,
     GetNewRecipeComponent,
     RecipeItemDetailComponent,
-    OtherRecipeComponent,
     CommentsComponent,
     NoAccessPageComponent,
     ErrorPageComponent,
 
   ],
   exports: [
+    OtherRecipeComponent,
     NavBarComponent,
     SliderComponent,
     BestRecipeComponent,
@@ -69,7 +70,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     GetNewRecipeComponent,
     RecipeItemComponent,
     RecipeItemDetailComponent,
-    OtherRecipeComponent,
   ],
 })
 export class SharedModule { }
