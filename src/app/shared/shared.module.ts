@@ -24,7 +24,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NoAccessPageComponent } from './components/no-access-page/no-access-page.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   imports: [
     ConfirmDialogModule,

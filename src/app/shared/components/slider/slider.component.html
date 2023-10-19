@@ -1,48 +1,68 @@
-<div class="container">
-  <div class="card">
-    <p-galleria
-      [value]="products"
-      [showItemNavigators]="true"
-      [showThumbnails]="false"
-      [responsiveOptions]="responsiveOptions"
-      [transitionInterval]="5000"
-      [autoPlay]="true"
-      [containerStyle]="{'max-width':'1280px'}"
-      [showIndicatorsOnItem]="false"
-    >
-      <ng-template pTemplate="item" let-item>
-        <div class="desc"> 
-          <div>
-            <h1>{{ item.title }}</h1>
-            <h6>{{ item.body }}</h6>
-          </div>
-          <div>
-            <div>
-              <img src="#" alt="" />
-              <span>30 минут</span>
+<div class="slider">
+<div class="navigation">
+  <div class="navigation_item" (click)="prev()" ></div>
+  <div class="navigation_item" (click)="next()" ></div>
+</div>
+<div class="general">
+<div class="container" #container>
+  <div class="flex_block" *ngFor="let item of products">
+    <div class="description">
+      <div class="top_desc">
+        <h1>{{ item.title }}</h1>
+        <h6>{{ item.body }}</h6>
+      </div>
+      <div class="both_desc">
+        <div class="logo">
+          <div class="chicken">
+            <div class="small_desc">
+              <img src="../../../../assets/Timer.svg" alt="" />
+              <span>{{ item.timeCooking }} минут</span>
             </div>
-            <div>
-              <img src="#" alt="" />
-              <span>курица</span>
+            <div class="small_desc">
+              <img src="../../../../assets/ForkKnife.svg" alt="" />
+              <span>{{ item.tags }}</span>
             </div>
           </div>
-          <div>
-            <div class="logo">
-              <img src="#" alt="" />
-            </div>
-            <div class="name">
-              <h4>john</h4>
-              <p>date</p>
-            </div>
-            <div class="btn"></div>
-            <p-button label="Посмотреть"></p-button>
-          </div>
-          <div>logo 2</div>
         </div>
-        <div class="logos"  style="background-image: url({{item.image}});border-radius: 10px;">
-          123
+        <div class="button_box">
+          <div class="user">
+            <div class="user_logo">
+              <img src="{{ item.user.image }}" alt="" />
+            </div>
+            <div class="user_property">
+              <p>{{ item.user.name }}</p>
+              <p>{{ item.user.date | date : "longDate" }}</p>
+            </div>
+          </div>
+          <div class="btn">
+            <button
+              mat-raised-button
+              color="primary"
+              class="red"
+              style="
+                background-color: black;
+                padding: 27px 47px;
+                border-radius: 16px;
+                background-image: url('../../../../assets/PlayCircle.svg');
+                background-repeat: no-repeat;
+                background-position: right;
+              "
+            >
+              Посмотреть
+            </button>
+          </div>
         </div>
-      </ng-template>
-    </p-galleria>
+      </div>
+    </div>
+    <div 
+    class="image" 
+    style=
+    "background-image: url({{item.image}});
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;">
+    </div>
   </div>
+</div>
+</div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -9,22 +9,10 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class SliderComponent implements OnInit {
     products!: any[];
 
+    @ViewChild('container') container!: any
 
-     responsiveOptions:any[] = [
-        {
-            breakpoint: '1024px',
-            numVisible: 5
-        },
-        {
-            breakpoint: '768px',
-            numVisible: 3
-        },
-        {
-            breakpoint: '560px',
-            numVisible: 1
-        }
-    ];
- 
+    public activeItem = 0;
+
     constructor(private recipeService: RecipeService) { }
 
     ngOnInit() {
@@ -33,6 +21,20 @@ export class SliderComponent implements OnInit {
                 this.products = rec
             }
         })
+    }
+    public next() {
+        this.activeItem = this.activeItem + 1320;
+        if (this.activeItem > 5000) {
+            this.activeItem = 0;
+        }
+        this.container.nativeElement.style.right = this.activeItem + 'px'
+    }
+    public prev() {
+        if (this.activeItem < 5000) {
+            this.activeItem = 0;
+        }
+        this.activeItem = this.activeItem - 1320;
+        this.container.nativeElement.style.right = this.activeItem + 'px'
     }
 
 }

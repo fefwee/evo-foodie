@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -10,10 +11,12 @@ export class BestRecipeComponent implements OnInit {
 
   public recipe: any = new Set([]);
   public visibleButton = true;
-  constructor(private service: RecipeService) { }
+  constructor(private service: RecipeService,
+    private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    
     this.service.getRandomRecipe(4).subscribe({
       next: (val) => {
         this.recipe = val;

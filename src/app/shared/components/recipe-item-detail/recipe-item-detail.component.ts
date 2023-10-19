@@ -44,12 +44,12 @@ export class RecipeItemDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private service: RecipeService,
     public dialog: MatDialog,
-    private confirmationService: ConfirmationService, private messageService: MessageService
+  
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.service.getRecipeId(Number(id)).subscribe({
+    this.service.getRecipeId(Number(1)).subscribe({
       next: (recipe: RecipeItem) => {
         this.recipeObj = recipe
       }
