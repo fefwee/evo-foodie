@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Recipe, RecipeItem } from '../interfaces/recipe-interface';
@@ -32,7 +32,8 @@ export class RecipeService {
   };
 
   createRecipe(recipe: any): Observable<RecipeItem> {
-    return this.http.post<RecipeItem>('https://ea-backend.wckz.space/posts',recipe)
+    const headers = new HttpHeaders().set('Authorization','Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiam9obiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5Nzc1MDQ5NiwiZXhwIjoxNjk3NzU3Njk2fQ.l41LS4cprZk7JFqMiSe8VbTHQ7zW5xSFi9hYP7_gfEA') 
+    return this.http.post<RecipeItem>('https://ea-backend.wckz.space/posts',recipe,{headers:headers})
   };
 
 }

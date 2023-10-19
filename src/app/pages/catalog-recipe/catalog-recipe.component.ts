@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog-recipe',
@@ -8,10 +9,17 @@ import { Meta } from '@angular/platform-browser';
 })
 export class CatalogRecipeComponent {
 
-  constructor(private meta: Meta) {
+  constructor(private meta: Meta,
+    protected router: Router) {
     this.meta.addTags([
       { property: "og:«Foodie: Каталог рецептов", content: "Все самые лучшие рецепты собраны здесь" },
     ])
+  }
+
+
+  public navigateToDetail(id: number) {
+
+    this.router.navigateByUrl(`recipe/${id}`)
   }
 
 }

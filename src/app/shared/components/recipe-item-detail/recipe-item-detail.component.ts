@@ -44,12 +44,12 @@ export class RecipeItemDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private service: RecipeService,
     public dialog: MatDialog,
-  
+
   ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.service.getRecipeId(Number(1)).subscribe({
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service.getRecipeId(Number(id)).subscribe({
       next: (recipe: RecipeItem) => {
         this.recipeObj = recipe
       }
@@ -57,11 +57,11 @@ export class RecipeItemDetailComponent implements OnInit {
   }
 
 
-  openDialog(recipe:boolean):void {
-    const dialogRef = this.dialog.open(ModalComponent,{
-     data:{
-      isRecipe:recipe
-     }
+  openDialog(recipe: boolean): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: {
+        isRecipe: recipe
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

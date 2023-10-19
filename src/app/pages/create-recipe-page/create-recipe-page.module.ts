@@ -7,9 +7,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateRecipeFormComponent } from './create-recipe-form/create-recipe-form.component';
 
 @NgModule({
-  declarations: [CreateRecipePageComponent],
+  declarations: [CreateRecipePageComponent, CreateRecipeFormComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,

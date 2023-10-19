@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -8,11 +9,12 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeItemComponent {
 
-  @Input() elemnt!:number;
-  @Input() btnVisible:boolean = true;
-  @Input() stylesClass!:boolean;
+  @Input() elemnt!: number;
+  @Input() btnVisible: boolean = true;
+  @Input() stylesClass!: boolean;
 
   constructor(private service: RecipeService,
+    protected router: Router
   ) { }
 
   public recipe: any = [];
@@ -24,6 +26,8 @@ export class RecipeItemComponent {
       }
     })
   }
+
+ 
 }
 
 
