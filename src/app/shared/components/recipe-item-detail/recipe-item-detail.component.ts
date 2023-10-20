@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeItem } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -38,22 +38,32 @@ export class RecipeItemDetailComponent implements OnInit {
     }
   ]
 
-  public recipeObj:any
+  public recipeObj: any
 
   constructor(
     private route: ActivatedRoute,
     private service: RecipeService,
     public dialog: MatDialog,
+    private router: Router
 
-  ) { }
+  ) {
+    router.events.subscribe({
+      next: (() => {
+        this.changeRecipe()
+      })
+    })
+  }
 
-  ngOnInit(): void {
+
+  public changeRecipe() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getRecipeId(Number(id)).subscribe({
       next: (recipe: RecipeItem) => {
         this.recipeObj = recipe
       }
     })
+  }
+  ngOnInit(): void {
   }
 
 

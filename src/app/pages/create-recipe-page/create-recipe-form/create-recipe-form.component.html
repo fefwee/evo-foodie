@@ -1,10 +1,7 @@
 <div class="container">
   <div class="create_recipe">
-    <div *ngIf="title">
-      <h3>Создание рецепта</h3>
-    </div>
-    <div *ngIf="!title">
-      <h3>Создание Рецепта</h3>
+    <div>
+      <h3>{{ title }}</h3>
     </div>
     <form [formGroup]="createRecipeForm" class="basic_information">
       <div>
@@ -249,7 +246,7 @@
   <div class="btn">
     <p-button
       [disabled]="!createRecipeForm.valid"
-      label="{{ btnTitle ? 'Отправить рецепт' : 'Редактировать этот рецепт' }}"
+      label="{{ submitBtn }}"
       icon="pi pi-check"
       (onClick)="onSave()"
     ></p-button>

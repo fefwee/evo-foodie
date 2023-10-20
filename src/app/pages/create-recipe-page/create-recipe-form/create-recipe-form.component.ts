@@ -12,22 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateRecipeFormComponent implements OnInit {
 
 
-  @Input() title!: boolean;
-  @Input() btnTitle = true;
-  @Input() imageBlock = false;
+  public title: string = 'Создание рецепта'
+  public submitBtn = 'Отправить рецепт '
+  public imageBlock = false;
   @Output() login: EventEmitter<any> = new EventEmitter();
   public createRecipeForm!: FormGroup;
   public isFormSubmited = false;
 
   constructor(private router: Router,
-    private service: RecipeService,
-    private route: ActivatedRoute
+    protected service: RecipeService,
+    protected route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.createForm()
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getRecipeId(Number(id))
   }
 
   createForm() {

@@ -4,6 +4,7 @@ import { AdministrationPageComponent } from './administration-page.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
 import { CreateRecipeFormComponent } from '../create-recipe-page/create-recipe-form/create-recipe-form.component';
+import { EditRecipeForm } from '../create-recipe-page/edit-recipe-form/edit-recipe-form';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
         path: 'recipes',
         component: AdminRecipeComponent,
       },
+      {
+        path: 'recipes/:id',
+        component: EditRecipeForm
+      }
 
 
     ]
