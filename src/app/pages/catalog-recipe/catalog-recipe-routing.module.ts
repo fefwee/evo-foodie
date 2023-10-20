@@ -8,10 +8,10 @@ const routes: Routes = [
     path: '',
     component: CatalogRecipeComponent,
   },
-/*   {
+  {
     path: ':id',
     component: RecipeItemDetailComponent,
-  }, */
+  },
 
 ];
 

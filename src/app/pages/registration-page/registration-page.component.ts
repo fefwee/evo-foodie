@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 
 interface userData {
@@ -12,7 +14,9 @@ interface userData {
 })
 export class RegistrationPageComponent implements OnInit {
 
-  constructor(private service: AuthUserService) { }
+  constructor(
+    private service: AuthUserService,
+    private router: Router) { }
 
   private userData: userData = {
     email: '',
@@ -28,14 +32,16 @@ export class RegistrationPageComponent implements OnInit {
       password: event.password
     }
     this.service.registrationUser(this.userData).subscribe({
-      next: () => {
+      error: (error:HttpErrorResponse) => {
+        if(error.status === 404){
+          
+        }
       }
     })
+    this.router.navigate(['/'])
   }
 
-  public registration() {
-    this.service.registrationUser(this.userData)
-  }
+ 
 
 
 }

@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AuthUserService } from './services/auth-user.service';
 import { RecipeService } from './services/recipe.service';
+import { UserState } from './store/user.state';
 
 @NgModule({
   declarations: [
@@ -23,8 +26,10 @@ import { RecipeService } from './services/recipe.service';
     SharedModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgxsModule.forRoot([UserState]),
+    NgxsLoggerPluginModule.forRoot(),
   ],
-  providers: [AuthUserService,RecipeService],
+  providers: [AuthUserService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

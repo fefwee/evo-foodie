@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -13,6 +13,7 @@ export class OtherRecipeComponent implements OnInit {
   public otherRecipe: Recipe[] = [];
 
   constructor(private servie: RecipeService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +27,9 @@ export class OtherRecipeComponent implements OnInit {
         this.otherRecipe = value;
       }
     })
+  }
+  public navigateToRecipeDetail(id: number): void {
+    this.router.navigate([`recipe/${id}`]);
   }
 
 }

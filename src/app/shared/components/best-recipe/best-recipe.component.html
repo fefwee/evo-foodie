@@ -9,7 +9,7 @@
   </div>
   <div class="box">
     <ng-container *ngFor="let item of recipe">
-      <div class="flex" routerLink="{{item.id}}">
+      <div class="flex"  (click)="navigateTorecipDetail(item.id)">
         <div class="box_recipe">
           <div class="logo">
             <img src="{{ item.image }}" alt="" />

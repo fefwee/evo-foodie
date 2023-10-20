@@ -39,7 +39,7 @@ export class AdminRecipeComponent implements OnInit {
     });
   }
 
-  navigateToRecipe(id:number){
+  public navigateToRecipe(id:number){
      this.router.navigate([`admin/recipes/${id}`])
   };
 }

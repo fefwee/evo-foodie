@@ -4,7 +4,7 @@
       <div
         class="box_recipe"
         [ngClass]="{ box_recipe2: stylesClass }"
-        routerLink="{{ item.id }}"
+        (click)="navigateToRecipeDetail(item.id)"
       >
         <div class="logo">
           <img src="{{ item.image }}" alt="" />

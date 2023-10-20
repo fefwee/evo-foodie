@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -14,7 +15,9 @@ export class SliderComponent implements OnInit {
 
     public activeItem = 0;
 
-    constructor(private recipeService: RecipeService) { }
+    constructor(
+        private recipeService: RecipeService,
+        private router: Router) { }
 
     ngOnInit() {
         this.recipeService.getRecipe().subscribe({
@@ -36,6 +39,10 @@ export class SliderComponent implements OnInit {
         }
         this.activeItem = this.activeItem - 1320;
         this.container.nativeElement.style.right = this.activeItem + 'px'
+    }
+
+    public navigateToDetail(id:number){
+        this.router.navigate([`recipe/${id}`])
     }
 
 }

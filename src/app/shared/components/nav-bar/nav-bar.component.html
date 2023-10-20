@@ -6,29 +6,33 @@
     <ul>
       <li routerLink="/">Главная</li>
       <li routerLink="/recipe">Каталог рецептов</li>
+      <li *ngIf="user.isAuth" routerLink="/create-recipe">Создание Рецептов</li>
     </ul>
   </div>
   <div class="flex">
-  <!-- <div class="user">
-    <p-button label="Войти"> </p-button>
-  </div> -->
-  <div class="red">
-    <div mat-button [matMenuTriggerFor]="menu">
-      <div class="menu">
-        <div class="logo_user">123</div>
-        <div>
-          <span>Ivanov Ivan</span>
-          <p>Пользователь</p>
+    <div class="user" *ngIf="!user.isAuth">
+    <p-button label="Войти"
+    routerLink="/auth"> </p-button>
+  </div> 
+    <div class="red"  *ngIf="user.isAuth">
+      <div mat-button [matMenuTriggerFor]="menu">
+        <div class="menu">
+          <div class="logo_user">
+            <img src="{{ user.image }}" alt="" />
+          </div>
+          <div>
+            <span>{{ user.fullname }}</span>
+            <p>{{ user.role }}</p>
+          </div>
         </div>
       </div>
+      <mat-menu #menu="matMenu">
+        <div class="menu_item">
+          <button mat-menu-item>{{ user.username }}</button>
+          <button mat-menu-item>Настройки аккаунта</button>
+          <button mat-menu-item>Выход</button>
+        </div>
+      </mat-menu>
     </div>
-    <mat-menu #menu="matMenu">
-      <div class="menu_item">
-        <button mat-menu-item>Вы вошли как</button>
-        <button mat-menu-item>Настройки аккаунта</button>
-        <button mat-menu-item>Выход</button>
-      </div>
-    </mat-menu>
   </div>
-</div>
 </div>

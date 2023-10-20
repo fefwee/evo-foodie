@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-recipe-form',
@@ -16,10 +19,15 @@ export class CreateRecipeFormComponent implements OnInit {
   public createRecipeForm!: FormGroup;
   public isFormSubmited = false;
 
-  constructor() { }
+  constructor(private router: Router,
+    private service: RecipeService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.createForm()
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service.getRecipeId(Number(id))
   }
 
   createForm() {
@@ -42,4 +50,6 @@ export class CreateRecipeFormComponent implements OnInit {
   onSave() {
     this.login.emit(this.createRecipeForm.value)
   };
+
+
 }

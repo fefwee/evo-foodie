@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
 import { AuthUserService } from 'src/app/services/auth-user.service';
+import { AuthUser } from 'src/app/store/models/user.model';
 
 
 interface userData {
@@ -19,7 +22,9 @@ export class AuthPageComponent {
     password: ''
   };
 
-  constructor(private service: AuthUserService) { }
+  constructor(private service: AuthUserService,
+    private store: Store,
+    public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,10 +35,7 @@ export class AuthPageComponent {
       username: event.username,
       password: event.password
     }
-    this.service.loginUser(this.userData).subscribe({
-      next: () => {
-      }
-    })
-
+    this.store.dispatch(new AuthUser(this.userData) )
+    this.router.navigate(['/'])
   };
 }

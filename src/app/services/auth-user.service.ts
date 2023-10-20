@@ -9,6 +9,7 @@ import { User, loginUser, registrationUser } from '../interfaces/user-interface'
 
 export class AuthUserService {
 
+
   constructor(private http: HttpClient) {
   }
 

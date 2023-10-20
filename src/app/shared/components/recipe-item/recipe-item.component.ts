@@ -28,6 +28,10 @@ export class RecipeItemComponent {
     })
   }
 
+  public navigateToRecipeDetail(id: number): void {
+    this.router.navigate([`recipe/${id}`]);
+  }
+
 
 }
 
