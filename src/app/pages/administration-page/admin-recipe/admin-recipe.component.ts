@@ -3,7 +3,7 @@ import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { MatDialog} from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-recipe',
@@ -17,7 +17,8 @@ export class AdminRecipeComponent implements OnInit {
 
   constructor(private service: RecipeService,
     public dialog: MatDialog,
-    private router:Router) { }
+    private router:Router,
+    private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.service.getRecipe().subscribe({
@@ -27,11 +28,13 @@ export class AdminRecipeComponent implements OnInit {
     })
   }
 
-  openDialog(recipe:boolean):void {
+  openDialog(recipe:boolean,id:number):void {
     const dialogRef = this.dialog.open(ModalComponent,{
      data:{
-      isRecipe:recipe
+      isRecipe:recipe,
+      idItem:id
      }
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

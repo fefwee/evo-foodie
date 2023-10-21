@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateRecipeFormComponent implements OnInit {
 
-
+  public obj!:any
   public title: string = 'Создание рецепта'
   public submitBtn = 'Отправить рецепт '
   public imageBlock = false;

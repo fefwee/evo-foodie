@@ -8,7 +8,7 @@ import { CreateRecipeFormComponent } from "../create-recipe-form/create-recipe-f
 
 export class EditRecipeForm extends CreateRecipeFormComponent implements OnInit {
 
-
+  public override obj!: any
   public override title = 'Редактирование рецепта:'
   public override submitBtn = 'Редактировать рецепт '
   public override imageBlock = true;
@@ -16,6 +16,10 @@ export class EditRecipeForm extends CreateRecipeFormComponent implements OnInit 
   override ngOnInit(): void {
     this.createForm()
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getRecipeId(Number(id))
+    this.service.getRecipeId(Number(id)).subscribe({
+      next: (val => {
+        this.obj = val  
+      })
+    })
   }
 }

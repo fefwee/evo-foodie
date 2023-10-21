@@ -36,6 +36,7 @@
     [mat-dialog-close]="true"
     cdkFocusInitial
     style="background-color: red; color: white; padding: 9px 17px"
+    (click)="deleteItem()"
   >
     {{ modalVariable ? "Удалить" : "Поделиться" }}
   </button>

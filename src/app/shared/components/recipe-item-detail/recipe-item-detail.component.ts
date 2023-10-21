@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeItem } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./recipe-item-detail.component.css'],
   providers: [ConfirmationService, MessageService]
 })
-export class RecipeItemDetailComponent implements OnInit {
+export class RecipeItemDetailComponent implements OnInit,OnDestroy {
 
   public selectRecipe = [
     {
@@ -39,6 +39,7 @@ export class RecipeItemDetailComponent implements OnInit {
   ]
 
   public recipeObj: any
+ /*  public eventsRouter */
 
   constructor(
     private route: ActivatedRoute,
@@ -47,11 +48,15 @@ export class RecipeItemDetailComponent implements OnInit {
     private router: Router
 
   ) {
-    router.events.subscribe({
+    /* this.eventsRouter = router.events.subscribe({
       next: (() => {
-        this.changeRecipe()
+       console.log('test');
+       
       })
-    })
+    })  */
+  }
+  ngOnDestroy(): void {
+/*     this.eventsRouter.unsubscribe() */
   }
 
 
