@@ -1,8 +1,7 @@
 <div class="container">
   <div class="create_recipe">
     <div>
-      <h3>{{ title }}</h3>
-      <h3>{{obj.title}}</h3>
+      <h3>{{ title }} {{ obj.title }}</h3>
     </div>
     <form [formGroup]="createRecipeForm" class="basic_information">
       <div>
@@ -48,7 +47,7 @@
             <p>Опишите о чем ваш рецепт</p>
           </div>
         </div>
-        <div class="input_field" *ngIf="imageBlock">
+        <div *ngIf="imageBlock" class="input_field">
           <label class="title">
             <p>Фотография</p>
           </label>

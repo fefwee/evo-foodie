@@ -7,7 +7,7 @@ export interface UserInterface {
 }
 export interface FoodValueInterface {
     calories: number
-    fats: 10
+    fats: number
     carbohydrates: number
     belki: number
 }
@@ -21,18 +21,9 @@ export interface CommentsInterface {
     }
     dateCreated: string
 }
-export interface IngridientsInterface {
-    ingredients: string
-}
-export interface Details {
-    title: string
-    body: string
-}
 
-export interface AdditionalInformationInteface {
-    ingredients: IngridientsInterface[]
-    details: Details[]
-}
+
+
 
 export interface RecipeItem {
     id: number
@@ -44,8 +35,17 @@ export interface RecipeItem {
     timeCooking: number
     foodValue: FoodValueInterface | undefined
     comments: CommentsInterface[]
-    additionalInformation: AdditionalInformationInteface | undefined
-    favorite: boolean
+    additionalInformation: {
+        ingredients: string[],
+        details: [
+            {
+                title: string,
+                body: string
+            }
+        ]
+    }
+    favorite: boolean | null,
+    isFavorite:boolean | null
 }
 export interface Recipe {
     id: number
@@ -55,11 +55,11 @@ export interface Recipe {
         id: number,
         date: string
         name: string
-        image:string
+        image: string
     },
-    image:string
-    body:string
-    timeCooking:number
-    favorite: boolean
+    image: string
+    body: string
+    timeCooking: number
+    favorite: boolean | null
 }
 

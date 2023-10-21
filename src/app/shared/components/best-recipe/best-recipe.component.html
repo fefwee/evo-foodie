@@ -9,20 +9,25 @@
   </div>
   <div class="box">
     <ng-container *ngFor="let item of recipe">
-      <div class="flex"  (click)="navigateTorecipDetail(item.id)">
+      <div class="flex">
         <div class="box_recipe">
           <div class="logo">
-            <img src="{{ item.image }}" alt="" />
+            <img
+              src="{{ item.image }}"
+              alt=""
+              (click)="navigateTorecipDetail(item.id)"
+            />
           </div>
           <div class="description">
             <h5>{{ item.title }}</h5>
           </div>
           <div class="favorite">
-            <button
+            <button 
               mat-mini-fab
-              matTooltip="Warn"
               color="warn"
-              aria-label="Example mini fab with a heart icon"
+              class="{{isFavorite ? 'favorite_btn_active':'favorite_btn_disable'}}"
+              (click)="setFavoriteValue(item.id)"
+              (click)="toggle()"
             >
               <mat-icon>favorite</mat-icon>
             </button>

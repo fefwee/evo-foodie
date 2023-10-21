@@ -11,7 +11,7 @@ export class EditRecipeForm extends CreateRecipeFormComponent implements OnInit 
   public override obj!: any
   public override title = 'Редактирование рецепта:'
   public override submitBtn = 'Редактировать рецепт '
-  public override imageBlock = true;
+  public override imageBlock = false;
 
   override ngOnInit(): void {
     this.createForm()

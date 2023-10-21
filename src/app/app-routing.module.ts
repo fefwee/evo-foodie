@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 import { NoAccessPageComponent } from './shared/components/no-access-page/no-access-page.component';
+import { roleAccessGuard } from './guards/role-access.guard';
+import { roleUserAccessGuard } from './guards/role-user-access.guard';
 
 const routes: Routes = [
   {
@@ -22,11 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'create-recipe',
-    loadChildren: () => import('./pages/create-recipe-page/create-recipe-page.module').then(m => m.CreateRecipePageModule)
+    loadChildren: () => import('./pages/create-recipe-page/create-recipe-page.module').then(m => m.CreateRecipePageModule),
+    canActivate:[roleUserAccessGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('./pages/administration-page/administration-page.module').then(m => m.AdministrationPageModule)
+    loadChildren: () => import('./pages/administration-page/administration-page.module').then(m => m.AdministrationPageModule),
+    canActivateChild:[roleAccessGuard]
   },
   {
     path: 'access',

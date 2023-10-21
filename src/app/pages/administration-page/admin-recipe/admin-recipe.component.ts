@@ -38,7 +38,8 @@ export class AdminRecipeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+     const id =  this.route.snapshot.paramMap.get('id')
+      console.log(`Dialog result: ${id}`);
     });
   }
 

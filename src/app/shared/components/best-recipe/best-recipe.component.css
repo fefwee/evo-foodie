@@ -1,4 +1,5 @@
 .box_recipe {
+    position: relative;
     max-width: 400px;
     height: 434px;
     border-radius: 30px;
@@ -39,7 +40,6 @@
 }
 
 .box {
-    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 24px 0 100px 0;
@@ -67,4 +67,10 @@
 
 .more button {
     margin: 0px 0 100px 0;
+}
+.favorite_btn_active {
+    background-color: red;
+}
+.favorite_btn_disable {
+    background-color: #DBE2E5;
 }

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngxs/store';
 import { UserState } from '../store/user.state';
 
-export const roleAccessGuard: CanActivateFn =
+export const roleUserAccessGuard: CanActivateFn =
   (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
@@ -19,7 +19,7 @@ export const roleAccessGuard: CanActivateFn =
     const router = inject(Router);
     const roleUser: any = store.select(UserState.getUser).subscribe({
       next: (val) => {
-        if (val.access_token && val.role === 'admin' || val.role === 'user') {
+        if (val.access_token && val.role === 'user') {
           return true;
         } else {
           return router.navigateByUrl('/access');

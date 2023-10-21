@@ -14,7 +14,7 @@ export class CreateRecipeFormComponent implements OnInit {
   public obj!:any
   public title: string = 'Создание рецепта'
   public submitBtn = 'Отправить рецепт '
-  public imageBlock = false;
+  public imageBlock = true;
   @Output() login: EventEmitter<any> = new EventEmitter();
   public createRecipeForm!: FormGroup;
   public isFormSubmited = false;

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngxs/store';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { FavoriteState } from 'src/app/store/favorite.state';
+import { AddToFavorite } from 'src/app/store/models/recipe.model';
 
 @Component({
   selector: 'app-best-recipe',
@@ -10,11 +13,14 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class BestRecipeComponent implements OnInit {
 
+
+  public isFavorite:boolean = false;
   public recipe: any = new Set([]);
   public visibleButton = true;
   constructor(private service: RecipeService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private store:Store) { }
 
 
   ngOnInit(): void {
@@ -24,10 +30,24 @@ export class BestRecipeComponent implements OnInit {
         this.recipe = val;
       }
     })
+    this.store.select(FavoriteState.getRecipe).subscribe({
+      next:(val)=>{
+    
+        
+      }
+    })
+  }
+
+  public toggle(){
+    this.isFavorite = !this.isFavorite
   }
 
   public navigateTorecipDetail(id: number): void {
     this.router.navigate([`recipe/${id}`])
+  }
+
+  public setFavoriteValue(id:number){
+    this.store.dispatch(new AddToFavorite(id))
   }
 
 

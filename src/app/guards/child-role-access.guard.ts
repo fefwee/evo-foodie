@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivateFn,
+  CanActivateChildFn,
   Router,
   RouterStateSnapshot,
   UrlTree
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngxs/store';
 import { UserState } from '../store/user.state';
 
-export const roleAccessGuard: CanActivateFn =
+export const childRoleAccessGuard: CanActivateChildFn =
   (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
@@ -27,5 +27,6 @@ export const roleAccessGuard: CanActivateFn =
       }
     })  
     return roleUser
+
 
   };

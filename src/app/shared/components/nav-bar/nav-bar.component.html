@@ -11,10 +11,9 @@
   </div>
   <div class="flex">
     <div class="user" *ngIf="!user.isAuth">
-    <p-button label="Войти"
-    routerLink="/auth"> </p-button>
-  </div> 
-    <div class="red"  *ngIf="user.isAuth">
+      <p-button label="Войти" routerLink="/auth"> </p-button>
+    </div>
+    <div class="red" *ngIf="user.isAuth">
       <div mat-button [matMenuTriggerFor]="menu">
         <div class="menu">
           <div class="logo_user">
@@ -30,6 +29,9 @@
         <div class="menu_item">
           <button mat-menu-item>{{ user.username }}</button>
           <button mat-menu-item>Настройки аккаунта</button>
+          <button *ngIf="isAdmin" mat-menu-item routerLink="admin">
+            Администрирование
+          </button>
           <button mat-menu-item>Выход</button>
         </div>
       </mat-menu>

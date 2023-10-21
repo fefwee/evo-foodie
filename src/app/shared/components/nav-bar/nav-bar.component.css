@@ -49,7 +49,9 @@
 .logo_user{
     width: 41px;
     height:41px;
-    background-color: red;
-    border-radius: 41px;
     margin-right: 17px;
+    border-radius: 41px;
+}
+.logo_user img {
+    border-radius: 41px;
 }
