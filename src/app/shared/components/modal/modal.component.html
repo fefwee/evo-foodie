@@ -9,16 +9,10 @@
   <mat-dialog-content class="mat-typography" style="min-width: 500px">
     <div class="text">
       <h3>
-        {{
-          modalVariable ? "Удалить этот рецепт?" : "Поделиться этим рецептом?"
-        }}
+        {{ header }}
       </h3>
       <p>
-        {{
-          modalVariable
-            ? "Вы хотите удалить этот рецепт"
-            : "Вы хотите поделиться этим рецептом со всеми?"
-        }}
+        {{ content }}
       </p>
     </div>
   </mat-dialog-content>
@@ -38,7 +32,6 @@
     style="background-color: red; color: white; padding: 9px 17px"
     (click)="deleteItem()"
   >
-    {{ modalVariable ? "Удалить" : "Поделиться" }}
+    {{ submitText }}
   </button>
 </mat-dialog-actions>
-

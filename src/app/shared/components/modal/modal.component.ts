@@ -1,6 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -18,24 +18,36 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ModalComponent {
 
-  public modalVariable!: string;
-  public id!:number;
+
+  @Output() changeSubmitModal = new EventEmitter();
+
+  public submitText!: string;
+  public id!: number;
   public access = false;
+  public header!: string
+  public content!: string
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      submitBtn: string
+      idItem: number
+      header: string
+      content: string
+    },
     private messageService: MessageService,
-    private serviceRecipe:RecipeService,
-    private route:ActivatedRoute) {
+    private serviceRecipe: RecipeService,
+    private route: ActivatedRoute) {
 
-    this.modalVariable = this.data.isRecipe
-    this.id = this.data.id
+    const { header, content, idItem, submitBtn } = this.data
+    this.submitText = submitBtn
+    this.id = idItem
+    this.header = header
+    this.content = content
   }
 
-  public deleteItem(id?:number){
-    console.log(id);
-    
+  public deleteItem() {
+    this.changeSubmitModal.emit(this.id)
   }
 
 

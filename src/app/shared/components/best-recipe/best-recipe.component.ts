@@ -14,31 +14,31 @@ import { AddToFavorite } from 'src/app/store/models/recipe.model';
 export class BestRecipeComponent implements OnInit {
 
 
-  public isFavorite:boolean = false;
-  public recipe: any = new Set([]);
+  public isFavorite: boolean = false;
+  public recipe:Recipe[] = [];
   public visibleButton = true;
   constructor(private service: RecipeService,
     private route: ActivatedRoute,
     private router: Router,
-    private store:Store) { }
+    private store: Store) { }
 
 
   ngOnInit(): void {
 
     this.service.getRandomRecipe(4).subscribe({
       next: (val: Recipe[]) => {
-        this.recipe = val;
+        this.recipe = val
       }
     })
     this.store.select(FavoriteState.getRecipe).subscribe({
-      next:(val)=>{
-    
-        
+      next: (val) => {
+
+
       }
     })
   }
 
-  public toggle(){
+  public toggle() {
     this.isFavorite = !this.isFavorite
   }
 
@@ -46,8 +46,29 @@ export class BestRecipeComponent implements OnInit {
     this.router.navigate([`recipe/${id}`])
   }
 
-  public setFavoriteValue(id:number){
-    this.store.dispatch(new AddToFavorite(id))
+  public setFavoriteValue(id: number) {
+   /*  this.recipe.forEach((element:any,index:number) => {
+      const item = element;
+      if (element.id === id) {
+
+        this.recipe.delete(index);
+        item.favorites = true
+        this.recipe.add(item)
+      }
+
+    }) */
+     this.recipe = this.recipe.map((m:any)=>{
+
+
+      if(m.id === id){
+        m.favorite = !m.favorite;
+    
+      }
+
+      return m
+    })
+    console.log(this.recipe.values()); 
+    this.store.dispatch(new AddToFavorite(id)) 
   }
 
 

@@ -45,7 +45,7 @@ export interface RecipeItem {
         ]
     }
     favorite: boolean | null,
-    isFavorite:boolean | null
+    isFavorite: boolean | null
 }
 export interface Recipe {
     id: number
@@ -63,3 +63,8 @@ export interface Recipe {
     favorite: boolean | null
 }
 
+export interface DeleteItemRecipe {
+    deleted: boolean
+    deletedPost: RecipeItem
+    id: number
+}
