@@ -44,12 +44,10 @@ export class CreateRecipePageComponent implements OnInit {
         ]
       }
     }
-    /* if(event.type === 'CREATE_RECIPE'){
+/*      if(event.type === 'CREATE_RECIPE'){
       this.service.createRecipe(bodyRecip).subscribe()
     }
     if(event.type === 'UPDATE_RECIPE')
-    this.service.updateRecipe(1,bodyRecip).subscribe() */
+    this.service.updateRecipe(1,bodyRecip).subscribe()  */
   }
-
-
 }

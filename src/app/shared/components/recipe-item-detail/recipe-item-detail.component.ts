@@ -38,7 +38,7 @@ export class RecipeItemDetailComponent implements OnInit {
     }
   ]
 
-  public recipeObj: any
+  public recipeObj:any
 
   constructor(
     private route: ActivatedRoute,
@@ -71,7 +71,10 @@ export class RecipeItemDetailComponent implements OnInit {
   openDialog(recipe: boolean): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
-        isRecipe: recipe
+        submitBtn: 'Поделиться',
+        idItem:1,
+        header: "Поделиться этим рецептом?",
+        content: "Вы хотите поделиться этим рецептом со всеми?"
       }
     });
 

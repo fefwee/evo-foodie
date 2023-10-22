@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateRecipeFormComponent implements OnInit {
 
-  public obj!:any
+  public obj!: any
   public title: string = 'Создание рецепта'
   public submitBtn = 'Отправить рецепт '
   public imageBlock = true;
@@ -45,7 +45,10 @@ export class CreateRecipeFormComponent implements OnInit {
   };
 
   onSave() {
-    this.login.emit(this.createRecipeForm.value);
+   /*  this.login.emit({
+      formValue: this.createRecipeForm.value,
+      type: 'CREATE_RECIPE',
+      id:}); */
   };
 
 

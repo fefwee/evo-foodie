@@ -1,7 +1,7 @@
 <div class="container">
   <div class="create_recipe">
     <div>
-      <h3>{{ title }} {{ obj.title }}</h3>
+      <h3 *ngIf="obj">{{ title }} {{ obj.title }}</h3>
     </div>
     <form [formGroup]="createRecipeForm" class="basic_information">
       <div>
@@ -61,7 +61,7 @@
                 validation:
                   (isFormSubmited &&
                     createRecipeForm.controls['image'].errors) ||
-                  (!createRecipeForm.controls['image'].pristine &&
+                  (!createRecipeForm.controls['image'].pristine  &&
                     createRecipeForm.controls['image'].invalid)
               }"
             ></textarea>

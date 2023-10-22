@@ -10,11 +10,13 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
   declarations: [AdministrationPageComponent, AdminUsersComponent, AdminRecipeComponent],
   imports: [
+    MatMenuModule,
     MatDialogModule,
     MatButtonModule,
     TableModule,
