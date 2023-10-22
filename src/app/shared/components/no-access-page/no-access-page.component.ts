@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-no-access-page',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./no-access-page.component.css']
 })
 export class NoAccessPageComponent {
+
+  constructor(private location: Location) {
+  }
+
+  goBack() {
+    this.location.back();
+  }
 
 }

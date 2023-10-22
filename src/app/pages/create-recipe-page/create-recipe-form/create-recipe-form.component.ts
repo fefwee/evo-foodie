@@ -32,7 +32,6 @@ export class CreateRecipeFormComponent implements OnInit {
     this.createRecipeForm = new FormGroup({
       nameRecipe: new FormControl('', [Validators.required]),
       descRecipe: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required]),
       categories: new FormControl('', [Validators.required]),
       timeCooking: new FormControl('', [Validators.required]),
       firsIngridient: new FormControl('', [Validators.required]),
@@ -46,7 +45,7 @@ export class CreateRecipeFormComponent implements OnInit {
   };
 
   onSave() {
-    this.login.emit(this.createRecipeForm.value)
+    this.login.emit(this.createRecipeForm.value);
   };
 
 

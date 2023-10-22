@@ -1,12 +1,8 @@
 <div class="container">
   <div class="box" [ngClass]="{ box2: stylesClass }" *ngIf="recipe">
     <ng-container *ngFor="let item of recipe">
-      <div
-        class="box_recipe"
-        [ngClass]="{ box_recipe2: stylesClass }"
-        (click)="navigateToRecipeDetail(item.id)"
-      >
-        <div class="logo">
+      <div class="box_recipe" [ngClass]="{ box_recipe2: stylesClass }">
+        <div class="logo" (click)="navigateToRecipeDetail(item.id)">
           <img src="{{ item.image }}" alt="" />
         </div>
         <div class="description">
@@ -15,9 +11,11 @@
         <div class="favorite">
           <button
             mat-mini-fab
-            matTooltip="Warn"
             color="warn"
-            aria-label="Example mini fab with a heart icon"
+            class="{{
+              item.favorite ? 'favorite_btn_active' : 'favorite_btn_disable'
+            }}"
+            (click)="setFavoriteValue(item.id)"
           >
             <mat-icon>favorite</mat-icon>
           </button>

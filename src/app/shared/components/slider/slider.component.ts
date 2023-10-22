@@ -22,20 +22,25 @@ export class SliderComponent implements OnInit {
     ngOnInit() {
         this.recipeService.getRecipe().subscribe({
             next: (rec: Recipe[]) => {
-                this.products = rec
+                this.products = rec;
+                this.products = this.products.filter((m:any)=>{
+                    if(m.favorite === true){
+                     return m
+                    }
+                  })
             }
         })
     }
     public next() {
         this.activeItem = this.activeItem + 1320;
-        if (this.activeItem > 5000) {
+        if (this.activeItem > 2690) {
             this.activeItem = 0;
         }
         this.container.nativeElement.style.right = this.activeItem + 'px'
     }
     public prev() {
-        if (this.activeItem < 5000) {
-            this.activeItem = 0;
+        if (this.activeItem < 1320) {
+            this.activeItem = 3960;
         }
         this.activeItem = this.activeItem - 1320;
         this.container.nativeElement.style.right = this.activeItem + 'px'

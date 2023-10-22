@@ -44,9 +44,11 @@ export class CreateRecipePageComponent implements OnInit {
         ]
       }
     }
-    this.service.createRecipe(bodyRecip).subscribe()
-    console.log(bodyRecip);
-
+    /* if(event.type === 'CREATE_RECIPE'){
+      this.service.createRecipe(bodyRecip).subscribe()
+    }
+    if(event.type === 'UPDATE_RECIPE')
+    this.service.updateRecipe(1,bodyRecip).subscribe() */
   }
 
 

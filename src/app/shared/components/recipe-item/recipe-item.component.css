@@ -80,3 +80,11 @@
      max-width: 706px;
      margin: 0 auto;
  }
+
+ .favorite_btn_active {
+     background-color: red;
+ }
+
+ .favorite_btn_disable {
+     background-color: #DBE2E5;
+ }

@@ -28,13 +28,15 @@ export class RecipeService {
   };
 
   createRecipe(recipe: any): Observable<RecipeItem> {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiam9obiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5NzgzMjU4MSwiZXhwIjoxNjk3ODM5NzgxfQ.0IpiEqBQUENE_mca1ZaxB_G8STBQFE51XsMS7NRDB9Y')
-    return this.http.post<RecipeItem>('https://ea-backend.wckz.space/posts', recipe, { headers: headers })
+    return this.http.post<RecipeItem>('https://ea-backend.wckz.space/posts', recipe)
   };
 
   deleteRecipe(id: number): Observable<DeleteItemRecipe> {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiam9obiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5NzkyNTg1OSwiZXhwIjoxNjk3OTMzMDU5fQ.vOHKA_iVgYYZKf9XnEoZ_Bl6SHJrklwBpFTFGlxuXQk')
-    return this.http.delete<DeleteItemRecipe>(`https://ea-backend.wckz.space/posts/${id}`, { headers: headers })
+    return this.http.delete<DeleteItemRecipe>(`https://ea-backend.wckz.space/posts/${id}`)
+  }
+
+  updateRecipe(id: number,recipe:any): Observable<any> {
+    return this.http.delete<DeleteItemRecipe>(`https://ea-backend.wckz.space/posts/${id}`,recipe)
   }
 
 }

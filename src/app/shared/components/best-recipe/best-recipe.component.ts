@@ -4,7 +4,7 @@ import { Store } from '@ngxs/store';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { FavoriteState } from 'src/app/store/favorite.state';
-import { AddToFavorite } from 'src/app/store/models/recipe.model';
+import { AddToFavorite, DeleteFavorite } from 'src/app/store/models/recipe.model';
 
 @Component({
   selector: 'app-best-recipe',
@@ -15,7 +15,7 @@ export class BestRecipeComponent implements OnInit {
 
 
   public isFavorite: boolean = false;
-  public recipe:Recipe[] = [];
+  public recipe: Recipe[] = [];
   public visibleButton = true;
   constructor(private service: RecipeService,
     private route: ActivatedRoute,
@@ -27,6 +27,9 @@ export class BestRecipeComponent implements OnInit {
 
     this.service.getRandomRecipe(4).subscribe({
       next: (val: Recipe[]) => {
+        val.forEach((val) => {
+          val.favorite = false;
+        })
         this.recipe = val
       }
     })
@@ -38,37 +41,30 @@ export class BestRecipeComponent implements OnInit {
     })
   }
 
-  public toggle() {
+/*   public toggle() {
     this.isFavorite = !this.isFavorite
-  }
+  } */
 
   public navigateTorecipDetail(id: number): void {
     this.router.navigate([`recipe/${id}`])
   }
 
   public setFavoriteValue(id: number) {
-   /*  this.recipe.forEach((element:any,index:number) => {
-      const item = element;
-      if (element.id === id) {
 
-        this.recipe.delete(index);
-        item.favorites = true
-        this.recipe.add(item)
-      }
-
-    }) */
-     this.recipe = this.recipe.map((m:any)=>{
+    this.recipe = this.recipe.map((m: any) => {
 
 
-      if(m.id === id){
+      if (m.id === id) {
         m.favorite = !m.favorite;
-    
+      } else {
+        this.store.dispatch(new DeleteFavorite(id))
       }
-
       return m
     })
-    console.log(this.recipe.values()); 
-    this.store.dispatch(new AddToFavorite(id)) 
+
+    console.log(this.recipe.values());
+    this.store.dispatch(new AddToFavorite(id))
+
   }
 
 

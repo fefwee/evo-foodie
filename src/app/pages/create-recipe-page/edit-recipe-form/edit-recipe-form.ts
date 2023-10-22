@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CreateRecipeFormComponent } from "../create-recipe-form/create-recipe-form.component";
+import { RecipeService } from "src/app/services/recipe.service";
 
 @Component({
   templateUrl: '../create-recipe-form/create-recipe-form.component.html',
@@ -13,6 +14,7 @@ export class EditRecipeForm extends CreateRecipeFormComponent implements OnInit 
   public override submitBtn = 'Редактировать рецепт '
   public override imageBlock = false;
 
+ 
   override ngOnInit(): void {
     this.createForm()
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -22,4 +24,6 @@ export class EditRecipeForm extends CreateRecipeFormComponent implements OnInit 
       })
     })
   }
+
+  
 }

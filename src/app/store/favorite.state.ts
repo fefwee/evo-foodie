@@ -1,7 +1,11 @@
-import { AddToFavorite, getRecipe, recipeFavoriteModel } from './models/recipe.model';
+import { AddToFavorite, DeleteFavorite, getRecipe, recipeFavoriteModel } from './models/recipe.model';
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
+import {
+    patch,
+    removeItem
+} from "@ngxs/store/operators";
 import { RecipeService } from '../services/recipe.service';
 
 
@@ -42,5 +46,23 @@ export class FavoriteState {
                 })
             })
         )
+    }
+
+    @Action(DeleteFavorite)
+    DeleteFavorite({ getState, setState }: StateContext<any>,
+        { payload }: any) {
+            return this.serviceRecipe.getRecipeId(payload).pipe(
+                tap((res) => {
+                    const state = getState();
+                    setState({
+                        ...state,
+                        favorite: [
+                            ...state.favorite,
+                            res 
+                        ],
+    
+                    })
+                })
+            )
     }
 }

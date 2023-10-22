@@ -1,4 +1,4 @@
-/* import {
+import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
@@ -14,16 +14,21 @@ import { UserState } from '../store/user.state';
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
 
-  constructor(private store:Store) {}
+  public token!: string | undefined
+
+  constructor(private store: Store) {
+    this.store.select(UserState.getUser).subscribe({
+      next: (token) => {
+        this.token = token.access_token
+      }
+    })
+  }
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('Intercepted!', req);
-    const token = this.store.select(UserState.getUser).subscribe({
-      next:(val)=>{
-        req = req.clone({headers:new HttpHeaders().set( 'authorization', 'Bearer ' +val.access_token)})
-      }
-    })
-    return next.handle(token)
+    req = req.clone({ headers: new HttpHeaders().set('authorization', `Bearer ${this.token}`) })
+    return next.handle(req)
   }
 }
- */
+
+/* req = req.clone({ headers: new HttpHeaders().set('authorization', `Bearer ${val.access_token}`) }) */

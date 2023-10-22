@@ -19,13 +19,13 @@ export const roleUserAccessGuard: CanActivateFn =
     const router = inject(Router);
     const roleUser: any = store.select(UserState.getUser).subscribe({
       next: (val) => {
-        if (val.access_token && val.role === 'user') {
+        if (val.access_token && val.role === 'user' || val.role === 'admin') {
           return true;
         } else {
           return router.navigateByUrl('/access');
         }
       }
-    })  
+    })
     return roleUser
 
   };

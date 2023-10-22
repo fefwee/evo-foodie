@@ -17,6 +17,7 @@ import { FavoriteState } from './store/favorite.state';
 import { roleAccessGuard } from './guards/role-access.guard';
 import { childRoleAccessGuard } from './guards/child-role-access.guard';
 import { roleUserAccessGuard } from './guards/role-user-access.guard';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -45,11 +46,11 @@ import { roleUserAccessGuard } from './guards/role-user-access.guard';
       provide: 'roleUserAccessGuard',
       useValue: roleUserAccessGuard
     },
-   /*  {
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: LoggingInterceptor,
       multi: true
-    } */],
+    }],
 
   bootstrap: [AppComponent]
 })

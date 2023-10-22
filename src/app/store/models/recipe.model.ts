@@ -12,3 +12,7 @@ export class AddToFavorite {
     static readonly type = '[Recipe] Add recipe'
     constructor(public payload: number) { }
 }
+export class DeleteFavorite {
+    static readonly type = '[Recipe] Delete recipe'
+    constructor(public payload: number) { }
+}
