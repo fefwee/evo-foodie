@@ -11,9 +11,10 @@ export class CatalogRecipeComponent {
 
   constructor(private meta: Meta,
     protected router: Router) {
-    this.meta.addTags([
-      { property: "og:«Foodie: Каталог рецептов", content: "Все самые лучшие рецепты собраны здесь" },
-    ])
+      this.meta.addTags([
+        { property: "og:title", content: "Foodie: Каталог рецептов" },
+        { property: "og:description", content: "Все самые лучшие рецепты собраны здесь" },
+      ])
   }
 
 }

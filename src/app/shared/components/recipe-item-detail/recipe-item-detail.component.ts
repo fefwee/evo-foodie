@@ -5,6 +5,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -38,12 +39,13 @@ export class RecipeItemDetailComponent implements OnInit {
     }
   ]
 
-  public recipeObj:any
+  public recipeObj: any
 
   constructor(
     private route: ActivatedRoute,
     private service: RecipeService,
     public dialog: MatDialog,
+    private meta: Meta
 
   ) {
     route.url.subscribe({
@@ -52,6 +54,8 @@ export class RecipeItemDetailComponent implements OnInit {
 
       })
     })
+    this.meta.addTags([
+    ])
   }
 
 
@@ -72,7 +76,7 @@ export class RecipeItemDetailComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
         submitBtn: 'Поделиться',
-        idItem:1,
+        idItem: 1,
         header: "Поделиться этим рецептом?",
         content: "Вы хотите поделиться этим рецептом со всеми?"
       }

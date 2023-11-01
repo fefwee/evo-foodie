@@ -16,7 +16,8 @@ export class RecipeService {
   public getRandomRecipe(el?: number): Observable<Recipe[]> {
     return this.http.get<Recipe[]>('https://ea-backend.wckz.space/posts').pipe(
       map((m: any) => {
-        const newArr = m.sort(() => Math.random() - 0.5)
+        const newArr = m.sort(() => Math.random() - 0.5);
+        const setArray = newArr.filter((item:any)=> item.id !== m.id);
         const arr = newArr.slice(1, el)
         return arr
       })

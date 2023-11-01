@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
-import { FavoriteState } from 'src/app/store/favorite.state';
 import { AddToFavorite, DeleteFavorite } from 'src/app/store/models/recipe.model';
 
 @Component({
@@ -33,37 +32,31 @@ export class BestRecipeComponent implements OnInit {
         this.recipe = val
       }
     })
-    this.store.select(FavoriteState.getRecipe).subscribe({
-      next: (val) => {
 
-
-      }
-    })
   }
 
-/*   public toggle() {
-    this.isFavorite = !this.isFavorite
-  } */
 
   public navigateTorecipDetail(id: number): void {
     this.router.navigate([`recipe/${id}`])
   }
 
   public setFavoriteValue(id: number) {
+    
+      this.recipe.forEach((element: any) => {
+        if (element.id === id && element.favorite === false) {
+          element.favorite = !element.favorite;
+          console.log('click one');
 
-    this.recipe = this.recipe.map((m: any) => {
+          return this.store.dispatch(new AddToFavorite(id))
+        }
+        if (element.id === id && element.favorite === true) {
+          console.log('second');
 
+          return this.store.dispatch(new DeleteFavorite(id))
+        }
+        return element
+      });
 
-      if (m.id === id) {
-        m.favorite = !m.favorite;
-      } else {
-        this.store.dispatch(new DeleteFavorite(id))
-      }
-      return m
-    })
-
-    console.log(this.recipe.values());
-    this.store.dispatch(new AddToFavorite(id))
 
   }
 

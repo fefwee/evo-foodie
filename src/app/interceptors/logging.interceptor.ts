@@ -25,10 +25,8 @@ export class LoggingInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('Intercepted!', req);
     req = req.clone({ headers: new HttpHeaders().set('authorization', `Bearer ${this.token}`) })
     return next.handle(req)
   }
 }
 
-/* req = req.clone({ headers: new HttpHeaders().set('authorization', `Bearer ${val.access_token}`) }) */

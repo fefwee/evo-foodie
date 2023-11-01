@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -9,7 +10,13 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService,
+    private meta: Meta) {
+    this.meta.addTags([
+      { property: "og:title", content: "«Foodie: Главная»" },
+      { property: "og:description", content: "Сборник кулинарных рецептов, для всей семьи" },
+    ])
+  }
 
   public recipe: Recipe[] = [];
 
