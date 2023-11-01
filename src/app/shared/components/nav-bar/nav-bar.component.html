@@ -11,7 +11,7 @@
   </div>
   <div class="flex">
     <div class="user" *ngIf="!user.isAuth">
-      <p-button label="Войти" routerLink="/auth"> </p-button>
+    <p-button label="Войти" routerLink="/auth"> </p-button>
     </div>
     <div class="red" *ngIf="user.isAuth">
       <div mat-button [matMenuTriggerFor]="menu">

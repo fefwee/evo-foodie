@@ -3,22 +3,27 @@ import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
-import { AddToFavorite } from 'src/app/store/models/recipe.model';
+import { AddToFavorite, DeleteFavorite } from 'src/app/store/models/recipe.model';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-recipe-item',
   templateUrl: './recipe-item.component.html',
-  styleUrls: ['./recipe-item.component.css']
+  styleUrls: ['./recipe-item.component.css'],
+  providers: [MessageService]
 })
 export class RecipeItemComponent {
 
   @Input() elemnt!: number;
   @Input() btnVisible: boolean = true;
   @Input() stylesClass!: boolean;
+  @Input() header = true;
 
   constructor(private service: RecipeService,
     protected router: Router,
-    private store: Store
+    private store: Store,
+    private messageService: MessageService
   ) { }
 
   public recipe: Recipe[] = [];
@@ -26,26 +31,32 @@ export class RecipeItemComponent {
   ngOnInit(): void {
     this.service.getRandomRecipe(this.elemnt).subscribe({
       next: (val: Recipe[]) => {
-        val.forEach((val)=>{
+        val.forEach((val) => {
           val.favorite = false;
         })
         this.recipe = val
-       
+
       }
     })
   }
 
 
   public setFavoriteValue(id: number) {
-    this.recipe = this.recipe.map((m: any) => {
-      if (m.id === id) {
-        m.favorite = !m.favorite;
+    this.recipe.forEach((element: any) => {
+      if (element.id === id && element.favorite === false) {
+        element.favorite = !element.favorite;
+        this.messageService.add({ severity: 'success', summary: '', detail: 'Добавлено в избранное' });
+        return this.store.dispatch(new AddToFavorite(id))
       }
-      return m
-    })
 
-    console.log(this.recipe.values());
-    this.store.dispatch(new AddToFavorite(id))
+      if (element.id === id && element.favorite === true) {
+        element.favorite = !element.favorite;
+        this.messageService.add({ severity: 'error', summary: '', detail: 'Удалено из избранного' });
+        return this.store.dispatch(new DeleteFavorite(id))
+      }
+
+      return element
+    });
   }
 
   public navigateToRecipeDetail(id: number): void {

@@ -1,41 +1,53 @@
 <div class="container">
-  <div class="box" [ngClass]="{ box2: stylesClass }" *ngIf="recipe">
-    <ng-container *ngFor="let item of recipe">
-      <div class="box_recipe" [ngClass]="{ box_recipe2: stylesClass }">
-        <div class="logo" (click)="navigateToRecipeDetail(item.id)">
-          <img src="{{ item.image }}" alt="" />
-        </div>
-        <div class="description">
-          <h5 [ngClass]="{ title_small: stylesClass }">{{ item.title }}</h5>
-        </div>
-        <div class="favorite">
-          <button
-            mat-mini-fab
-            color="warn"
-            class="{{
-              item.favorite ? 'favorite_btn_active' : 'favorite_btn_disable'
-            }}"
-            (click)="setFavoriteValue(item.id)"
-          >
-            <mat-icon>favorite</mat-icon>
-          </button>
-        </div>
-        <div class="icons">
-          <div class="tags">
-            <span><img src="../../../../assets/Timer.svg" alt="" /></span
-            >{{ item.timeCooking }}
-          </div>
-          <div class="tags">
-            <span><img src="../../../../assets/ForkKnife.svg" alt="" /></span
-            >{{ item.tags }}
-          </div>
-        </div>
-      </div>
-    </ng-container>
-    <div class="more" *ngIf="btnVisible">
-      <button mat-stroked-button color="primary" style="color: inherit">
-        Посмотреть еще
-      </button>
+  <div class="wrapper">
+    <div *ngIf="header" class="header">
+      <h2>Попробуйте эти вкусные рецепты</h2>
+      <h6>
+        Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqut enim ad minim
+      </h6>
     </div>
+    <div class="box" [ngClass]="{ box2: stylesClass }" *ngIf="recipe">
+      <ng-container *ngFor="let item of recipe">
+        <div class="box_recipe" [ngClass]="{ box_recipe2: stylesClass }">
+          <div class="logo" (click)="navigateToRecipeDetail(item.id)">
+            <img src="{{ item.image }}" alt="" />
+          </div>
+          <div class="description">
+            <h5 [ngClass]="{ title_small: stylesClass }">{{ item.title }}</h5>
+          </div>
+          <div class="favorite">
+            <button
+              mat-mini-fab
+              color="warn"
+              class="{{
+                item.favorite ? 'favorite_btn_active' : 'favorite_btn_disable'
+              }}"
+              (click)="setFavoriteValue(item.id)"
+            >
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </div>
+          <div class="icons">
+            <div class="tags">
+              <span><img src="../../../../assets/Timer.svg" alt="" /></span
+              >{{ item.timeCooking }}
+            </div>
+            <div class="tags">
+              <span><img src="../../../../assets/ForkKnife.svg" alt="" /></span
+              >{{ item.tags }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="more" *ngIf="btnVisible">
+        <button mat-stroked-button color="primary" style="color: inherit">
+          Посмотреть еще
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p-toast></p-toast>
   </div>
 </div>

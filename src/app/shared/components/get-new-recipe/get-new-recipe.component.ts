@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-get-new-recipe',
   templateUrl: './get-new-recipe.component.html',
-  styleUrls: ['./get-new-recipe.component.css']
+  styleUrls: ['./get-new-recipe.component.css'],
+  providers: [MessageService]
 })
 export class GetNewRecipeComponent implements OnInit {
 
-  public messages: any;
   public registerForm!: FormGroup;
   public submitted = false;
   public subscribe = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -21,8 +25,6 @@ export class GetNewRecipeComponent implements OnInit {
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
       ]],
     });
-
-    this.messages = [{ severity: 'success', summary: 'Success', detail: 'Вы подписались на рассылку' }];
   }
 
   get f() {
@@ -37,6 +39,9 @@ export class GetNewRecipeComponent implements OnInit {
     this.subscribe = true
   }
 
+  show() {
+    this.messageService.add({ severity: 'success', summary: 'Успешно', detail: 'Вы успешно подписались' });
+}
 
 
 }

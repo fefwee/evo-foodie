@@ -22,10 +22,12 @@
             <h5>{{ item.title }}</h5>
           </div>
           <div class="favorite">
-            <button 
+            <button
               mat-mini-fab
               color="warn"
-              class="{{item.favorite ? 'favorite_btn_active':'favorite_btn_disable'}}"
+              class="{{
+                item.favorite ? 'favorite_btn_active' : 'favorite_btn_disable'
+              }}"
               (click)="setFavoriteValue(item.id)"
             >
               <mat-icon>favorite</mat-icon>
@@ -41,20 +43,24 @@
               >{{ item.tags }}
             </div>
           </div>
-          <p>{{item.favorite}}</p>
+          <p>{{ item.favorite }}</p>
         </div>
       </div>
-      
     </ng-container>
   </div>
-</div>
-<div class="more" *ngIf="visibleButton">
-  <button
-    mat-stroked-button
-    color="primary"
-    style="color: inherit"
-    (click)="moreRecipe()"
-  >
-    Посмотреть еще
-  </button>
+  <div class="more" *ngIf="visibleButton">
+    <button
+      mat-stroked-button
+      color="primary"
+      style="color: inherit"
+      (click)="moreRecipe()"
+    >
+      Посмотреть еще
+    </button>
+    <div class="card">
+      <p-toast></p-toast>
+    </div>
+  </div>
+
+ 
 </div>

@@ -25,8 +25,10 @@ import { NoAccessPageComponent } from './components/no-access-page/no-access-pag
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
+import { ToastModule } from 'primeng/toast';
 @NgModule({
   imports: [
+    ToastModule,
     ConfirmDialogModule,
     MatDialogModule,
     MessagesModule,
