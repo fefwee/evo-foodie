@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateRecipePageComponent } from './create-recipe-page.component';
-import { CreateRecipeFormComponent } from './create-recipe-form/create-recipe-form.component';
+import { CreateRecipeFormComponent } from '../../shared/components/create-recipe-form/create-recipe-form.component';
+import { EditPageComponent } from 'src/app/shared/components/edit-page/edit-page.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,8 @@ const routes: Routes = [
     component: CreateRecipePageComponent,
   },
   {
-    path: 'id',
-    component: CreateRecipeFormComponent
+    path:':id',
+    component:EditPageComponent
   }
 ];
 

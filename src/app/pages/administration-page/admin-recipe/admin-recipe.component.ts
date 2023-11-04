@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DeleteItemRecipe, Recipe } from 'src/app/interfaces/recipe-interface';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,7 +22,14 @@ export class AdminRecipeComponent implements OnInit {
   constructor(private service: RecipeService,
     public dialog: MatDialog,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      route.url.subscribe({
+        next: (() => {
+          this.getRecipe()
+        })
+      })
+
+  }
 
   ngOnInit(): void {
     this.getRecipe()
@@ -76,7 +83,7 @@ export class AdminRecipeComponent implements OnInit {
   }
 
   public navigateToRecipe(id: number) {
-    this.router.navigate([`admin/recipes/${id}`])
+    this.router.navigate([`/create-recipe/${id}`])
   };
 }
 

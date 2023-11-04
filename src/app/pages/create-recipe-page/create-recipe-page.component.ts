@@ -16,6 +16,8 @@ export class CreateRecipePageComponent implements OnInit {
 
 
   createRecipe(event: any) {
+    console.log('123');
+    
     const ing1 = {}
     const ing2 = {}
     const bodyRecip = {
@@ -44,10 +46,6 @@ export class CreateRecipePageComponent implements OnInit {
         ]
       }
     }
-/*      if(event.type === 'CREATE_RECIPE'){
-      this.service.createRecipe(bodyRecip).subscribe()
-    }
-    if(event.type === 'UPDATE_RECIPE')
-    this.service.updateRecipe(1,bodyRecip).subscribe()  */
+    this.service.createRecipe(bodyRecip).subscribe()
   }
 }

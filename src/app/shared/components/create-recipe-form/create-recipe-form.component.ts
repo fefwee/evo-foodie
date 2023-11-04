@@ -4,6 +4,14 @@ import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { ActivatedRoute } from '@angular/router';
 
+
+
+interface ItenObj {
+  id:number,
+  recipe:any
+}
+
+
 @Component({
   selector: 'app-create-recipe-form',
   templateUrl: './create-recipe-form.component.html',
@@ -11,7 +19,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateRecipeFormComponent implements OnInit {
 
+  @Input() item:ItenObj | undefined;
+  
   public obj!: any
+  public id!: number;
   public title: string = 'Создание рецепта'
   public submitBtn = 'Отправить рецепт '
   public imageBlock = true;
@@ -26,6 +37,8 @@ export class CreateRecipeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
+    console.log(this.item);
+    
   }
 
   createForm() {
@@ -45,11 +58,13 @@ export class CreateRecipeFormComponent implements OnInit {
   };
 
   onSave() {
-   /*  this.login.emit({
-      formValue: this.createRecipeForm.value,
-      type: 'CREATE_RECIPE',
-      id:}); */
+    /*  this.login.emit({
+       formValue: this.createRecipeForm.value,
+       type: 'CREATE_RECIPE',
+       id:}); */
+
   };
+
 
 
 }

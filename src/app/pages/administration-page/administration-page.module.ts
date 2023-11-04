@@ -5,16 +5,16 @@ import { AdministrationPageRoutingModule } from './administration-page-routing.m
 import { AdministrationPageComponent } from './administration-page.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
 
 
 @NgModule({
-  declarations: [AdministrationPageComponent, AdminUsersComponent, AdminRecipeComponent],
+  declarations: [AdministrationPageComponent, AdminUsersComponent,AdminRecipeComponent],
   imports: [
     MatMenuModule,
     MatDialogModule,

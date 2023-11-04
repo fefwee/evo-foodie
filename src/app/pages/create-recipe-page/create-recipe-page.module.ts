@@ -7,11 +7,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateRecipeFormComponent } from './create-recipe-form/create-recipe-form.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [CreateRecipePageComponent, CreateRecipeFormComponent],
+  declarations: [CreateRecipePageComponent],
   imports: [
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

@@ -26,6 +26,9 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { MatDialogModule } from '@angular/material/dialog';
 import { OtherRecipeComponent } from '../pages/other-recipe/other-recipe.component';
 import { ToastModule } from 'primeng/toast';
+import { CreateRecipeFormComponent } from './components/create-recipe-form/create-recipe-form.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 @NgModule({
   imports: [
     ToastModule,
@@ -42,8 +45,11 @@ import { ToastModule } from 'primeng/toast';
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
+    InputTextModule,
+    InputTextareaModule,
   ],
   declarations: [
+    EditPageComponent,
     OtherRecipeComponent,
     NavBarComponent,
     SliderComponent,
@@ -59,9 +65,11 @@ import { ToastModule } from 'primeng/toast';
     CommentsComponent,
     NoAccessPageComponent,
     ErrorPageComponent,
-
+    CreateRecipeFormComponent
   ],
   exports: [
+    EditPageComponent,
+    CreateRecipeFormComponent,
     OtherRecipeComponent,
     NavBarComponent,
     SliderComponent,

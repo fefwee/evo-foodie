@@ -1,6 +1,7 @@
 <div class="container">
   <div class="create_recipe">
-    <div>
+    <div *ngIf = 'item'>
+      <h1>this is id{{item.id}}</h1>
       <h3 *ngIf="obj">{{ title }} {{ obj.title }}</h3>
     </div>
     <form [formGroup]="createRecipeForm" class="basic_information">
@@ -13,10 +14,7 @@
             <p>Название рецепта</p>
           </label>
           <div class="max_field input">
-            <input
-              pInputText
-        
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -24,12 +22,7 @@
             <p>Краткое описание</p>
           </label>
           <div class="max_field input">
-            <textarea
-              rows="2"
-              cols="30"
-              pInputTextarea
-         
-            ></textarea>
+            <textarea rows="2" cols="30" pInputTextarea></textarea>
             <p>Опишите о чем ваш рецепт</p>
           </div>
         </div>
@@ -38,12 +31,7 @@
             <p>Фотография</p>
           </label>
           <div class="max_field input">
-            <textarea
-              rows="2"
-              cols="30"
-              pInputTextarea
-         
-            ></textarea>
+            <textarea rows="2" cols="30" pInputTextarea></textarea>
           </div>
         </div>
       </div>
@@ -56,10 +44,7 @@
             <p>Категория</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-          
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -67,10 +52,7 @@
             <p>Время приготовления</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-        
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -78,10 +60,7 @@
             <p>Первый ингридиент</p>
           </label>
           <div class="max_field input">
-            <input
-              pInputText
-          
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -89,10 +68,7 @@
             <p>Белки</p>
           </label>
           <div class="max_field input">
-            <input
-              pInputText
-           
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -100,10 +76,7 @@
             <p>Жиры</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-         
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -111,10 +84,7 @@
             <p>Углеводы</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-         
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -122,10 +92,7 @@
             <p>Калории</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-          
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="column">
@@ -137,10 +104,7 @@
             <p>Краткое действие первого шага</p>
           </label>
           <div class="min_field">
-            <input
-              pInputText
-         
-            />
+            <input pInputText />
           </div>
         </div>
         <div class="input_field">
@@ -148,12 +112,7 @@
             <p>Описание первого шага</p>
           </label>
           <div class="max_field">
-            <textarea
-              rows="1"
-              cols="20"
-              pInputTextarea
-        
-            ></textarea>
+            <textarea rows="1" cols="20" pInputTextarea></textarea>
           </div>
         </div>
       </div>
@@ -161,10 +120,20 @@
   </div>
   <div class="btn">
     <p-button
-      [disabled]="!createRecipeForm.valid"
       label="{{ submitBtn }}"
       icon="pi pi-check"
       (onClick)="onSave()"
     ></p-button>
   </div>
+</div>
+
+<div *ngIf = 'item'>
+  <ul>
+    <li>{{item.recipe.title}}</li>
+    <li>{{item.recipe.tags}}</li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </div>
