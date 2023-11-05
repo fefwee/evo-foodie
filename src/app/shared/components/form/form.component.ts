@@ -25,7 +25,9 @@ export class FormComponent implements OnInit {
       password: new FormControl('', [Validators.required])
     })
   };
+
   onSave() {
+    
     this.login.emit(this.loginForm.value)
   };
 

@@ -37,7 +37,6 @@ export class CreateRecipeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
-    console.log(this.item);
     
   }
 
@@ -58,11 +57,7 @@ export class CreateRecipeFormComponent implements OnInit {
   };
 
   onSave() {
-    /*  this.login.emit({
-       formValue: this.createRecipeForm.value,
-       type: 'CREATE_RECIPE',
-       id:}); */
-
+    this.login.emit(this.createRecipeForm.value)
   };
 
 

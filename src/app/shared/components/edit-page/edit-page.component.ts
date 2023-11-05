@@ -15,6 +15,8 @@ export class EditPageComponent implements OnInit {
       recipe: []
     };
 
+
+
   constructor(
     private route: ActivatedRoute,
     private service: RecipeService) { }
@@ -27,6 +29,41 @@ export class EditPageComponent implements OnInit {
         this.idItem.recipe = val;
       })
     })
+  }
+
+  onsave(event: any) {
+    console.log(event);
+
+    const ing1 = {}
+    const ing2 = {}
+    const bodyRecip = {
+      title: event.nameRecipe,
+      body: event.descRecipe,
+      tags: "string",
+      image: 'string',
+      favorite: true,
+      timeCooking: Number(event.timeCooking),
+      foodValue: {
+        calories: event.calories,
+        fats: event.fats,
+        carbohydrates: event.carbohydrates,
+        belki: event.belki
+      },
+      additionalInformation: {
+        ingredients: [
+          ing1,
+          ing2
+        ],
+        details: [
+          {
+            title: event.firstStep,
+            body: event.descFirstStep
+          }
+        ]
+      }
+    }
+
+    this.service.createRecipe(bodyRecip).subscribe()
   }
 
 

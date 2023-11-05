@@ -14,17 +14,15 @@ export class CreateRecipePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   createRecipe(event: any) {
-    console.log('123');
-    
+
     const ing1 = {}
     const ing2 = {}
     const bodyRecip = {
       title: event.nameRecipe,
       body: event.descRecipe,
       tags: "string",
-      image: event.image,
+      image:'string',
       favorite: true,
       timeCooking: Number(event.timeCooking),
       foodValue: {
@@ -46,6 +44,7 @@ export class CreateRecipePageComponent implements OnInit {
         ]
       }
     }
+
     this.service.createRecipe(bodyRecip).subscribe()
   }
 }
